@@ -4,60 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tornadoes Artistic Swimming Roster & AI Portal</title>
+    
+    <!-- PWA & Mobile Web App Meta Tags -->
+    <meta name="theme-color" content="#0d9488">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Tornadoes Synchro">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3163/3163478.png">
+    
+    <!-- Inline Web App Manifest -->
+    <link rel="manifest" href='data:application/manifest+json,{"name":"Tornadoes Artistic Swimming Portal","short_name":"Tornadoes","description":"Official Tornadoes Artistic Swimming Roster, WA Rules & ASAJ Hub","start_url":"./","display":"standalone","background_color":"#0f172a","theme_color":"#0d9488","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/3163/3163478.png","sizes":"512x512","type":"image/png"}]}'>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        .font-brand { font-family: 'Poppins', sans-serif; }
         .tab-btn.active { background-color: #0d9488; color: white; }
     </style>
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen">
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col justify-between">
 
-    <!-- MAIN HEADER -->
-    <header class="bg-gradient-to-r from-slate-900 via-teal-900 to-slate-900 text-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+    <!-- MAIN HEADER WITH OFFICIAL LOGO -->
+    <header class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white shadow-xl border-b border-teal-500/30">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            <!-- OFFICIAL LOGO INTEGRATION -->
             <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-full bg-teal-500/20 border-2 border-teal-400 flex items-center justify-center text-teal-300 text-2xl font-bold">
-                    <i class="fas fa-tornado"></i>
+                <div class="bg-white p-2.5 rounded-2xl shadow-md border border-slate-200 flex items-center justify-center shrink-0">
+                    <svg class="h-14 sm:h-16 w-auto" viewBox="0 0 500 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cyan Tornado Spiral -->
+                        <path d="M40 30 C120 20, 170 30, 180 40 C140 55, 70 50, 60 60 C130 65, 170 70, 160 80 C110 90, 80 88, 75 98 C120 102, 155 108, 145 118 C100 125, 90 125, 88 135 C120 138, 140 142, 130 152 C95 158, 100 162, 105 172 C125 175, 130 182, 120 192 C105 202, 115 210, 125 220" stroke="#00C3DA" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M70 45 C130 38, 160 45, 165 52 C125 65, 85 60, 80 68" stroke="#00C3DA" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M85 85 C125 82, 145 88, 140 94 C110 102, 95 100, 92 106" stroke="#00C3DA" stroke-width="5" stroke-linecap="round"/>
+                        
+                        <!-- Swimmers Line-Art (Orange) -->
+                        <!-- Swimmer 1 -->
+                        <path d="M210 130 C205 100, 215 70, 205 45 C200 35, 195 25, 200 15 M200 15 C205 25, 215 35, 220 50 M210 65 C225 55, 235 40, 230 20" stroke="#F26522" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                        <circle cx="215" cy="60" r="10" stroke="#F26522" stroke-width="4" fill="none"/>
+                        <!-- Swimmer 2 -->
+                        <path d="M260 140 C255 110, 265 80, 255 55 C250 45, 245 35, 250 25 M250 25 C255 35, 265 45, 270 60 M260 75 C275 65, 285 50, 280 30" stroke="#F26522" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                        <circle cx="265" cy="70" r="10" stroke="#F26522" stroke-width="4" fill="none"/>
+
+                        <!-- Typography -->
+                        <text x="190" y="150" font-family="'Poppins', sans-serif" font-weight="900" font-size="44" fill="#0F172A" letter-spacing="2">TORNADOES</text>
+                        <text x="190" y="188" font-family="'Poppins', sans-serif" font-weight="900" font-size="38" fill="#F26522" letter-spacing="4">ARTISTIC</text>
+                        <text x="190" y="225" font-family="'Poppins', sans-serif" font-weight="900" font-size="36" fill="#00C3DA" letter-spacing="3">SWIMMING</text>
+                    </svg>
                 </div>
+
                 <div>
-                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">TORNADOES ARTISTIC SWIMMING</h1>
+                    <h1 class="text-xl sm:text-2xl font-black font-brand tracking-tight text-white flex items-center gap-2">
+                        TORNADOES ARTISTIC SWIMMING
+                    </h1>
                     <p class="text-xs sm:text-sm text-teal-300 font-medium">2026–2027 Official Squad Portal, WA Rules & ASAJ Hub</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3 bg-slate-800/80 px-4 py-2 rounded-xl border border-teal-500/30">
-                <div class="text-right">
-                    <div class="text-xs font-semibold text-slate-300">TOTAL SQUAD</div>
-                    <div class="text-xl font-black text-teal-400">25 Swimmers</div>
-                </div>
-                <div class="h-8 w-px bg-slate-700"></div>
-                <div class="text-xs text-amber-400 font-bold uppercase tracking-wider">
-                    #BETORNADOES
+
+            <!-- Header Actions -->
+            <div class="flex flex-wrap items-center gap-3">
+                <button onclick="toggleInstallModal()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 shadow-sm transition-all">
+                    <i class="fas fa-mobile-screen-button text-base"></i>
+                    <span>Instalar App Gratis</span>
+                </button>
+                <div class="flex items-center gap-3 bg-slate-800/90 px-4 py-2 rounded-xl border border-teal-500/30">
+                    <div class="text-right">
+                        <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Total Squad</div>
+                        <div class="text-lg font-black text-teal-400">25 Swimmers</div>
+                    </div>
+                    <div class="h-7 w-px bg-slate-700"></div>
+                    <div class="text-xs text-amber-400 font-bold uppercase tracking-wider font-brand">
+                        #BETORNADOES
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- FREE PWA INSTALLATION MODAL -->
+    <div id="installModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 border border-slate-200">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fas fa-download text-teal-600"></i> Instalar la App en tu Teléfono (Gratis)
+                </h3>
+                <button onclick="toggleInstallModal()" class="text-slate-400 hover:text-slate-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Esta aplicación no requiere descarga desde la tienda de pago. Puedes instalarla directamente en tu teléfono en 5 segundos:
+            </p>
+            <div class="space-y-3 text-xs">
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <i class="fab fa-android text-emerald-600"></i> En Android (Chrome):
+                    </div>
+                    <ol class="list-decimal list-inside space-y-1 text-slate-700">
+                        <li>Toca los <strong>3 puntos (⋮)</strong> en la esquina superior derecha del navegador.</li>
+                        <li>Selecciona <strong>"Agregar a la pantalla principal"</strong> o <strong>"Instalar aplicación"</strong>.</li>
+                    </ol>
+                </div>
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <i class="fab fa-apple text-slate-900"></i> En iPhone / iPad (Safari):
+                    </div>
+                    <ol class="list-decimal list-inside space-y-1 text-slate-700">
+                        <li>Toca el botón <strong>Compartir <i class="fas fa-arrow-up-from-bracket"></i></strong> abajo.</li>
+                        <li>Selecciona <strong>"Agregar a inicio" (Add to Home Screen)</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+            <button onclick="toggleInstallModal()" class="w-full bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition-colors">
+                ¡Entendido!
+            </button>
+        </div>
+    </div>
+
     <!-- MAIN CONTAINER -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
 
         <!-- NAVIGATION TABS -->
         <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-3">
             <button onclick="switchTab('roster')" id="tab-roster" class="tab-btn active px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-teal-600 text-white shadow-sm flex items-center gap-2">
                 <i class="fas fa-users"></i> Squad Roster & Schedule
             </button>
+            <button onclick="switchTab('roadmap')" id="tab-roadmap" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-calendar-days text-teal-600"></i> Roadmap & Calendar
+            </button>
+            <button onclick="switchTab('pathway')" id="tab-pathway" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-compass text-amber-500"></i> Trial Mindset & Pathway
+            </button>
+            <button onclick="switchTab('eval-sheets')" id="tab-eval-sheets" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-clipboard-list text-purple-600"></i> Evaluation Forms & Catalogues
+            </button>
             <button onclick="switchTab('gear')" id="tab-gear" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-                <i class="fas fa-toolbox"></i> Required Gear List
+                <i class="fas fa-toolbox"></i> Required Gear Matrix
             </button>
             <button onclick="switchTab('figures')" id="tab-figures" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-                <i class="fas fa-swimming-pool"></i> Figures & Elements (DD)
+                <i class="fas fa-swimming-pool"></i> WA Figures & TRE (DD)
             </button>
             <button onclick="switchTab('wa-rules')" id="tab-wa-rules" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-                <i class="fas fa-book-open text-cyan-600"></i> World Aquatics Rules
+                <i class="fas fa-book-open text-cyan-600"></i> WA Competition Rules
             </button>
             <button onclick="switchTab('asaj-info')" id="tab-asaj-info" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
                 <i class="fas fa-flag text-amber-500"></i> ASAJ Synchro Info
@@ -229,6 +321,511 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Attendance & Strict Punctuality Card -->
+            <div class="bg-amber-50 rounded-xl border border-amber-200 p-5 space-y-3">
+                <h3 class="font-bold text-amber-950 text-base flex items-center gap-2">
+                    <i class="fas fa-clock text-amber-600"></i> Strict Attendance & Punctuality Policy 2026–2027
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-amber-900 leading-relaxed">
+                    <div class="bg-white/80 p-3.5 rounded-lg border border-amber-200">
+                        <strong class="text-amber-950 block mb-1">Weekdays (Tue, Wed, Thu, Fri):</strong>
+                        30-minute estimated arrival window provided. Official pool training begins at the stated start time (4:00 PM or 3:30 PM).
+                    </div>
+                    <div class="bg-white/80 p-3.5 rounded-lg border border-amber-200">
+                        <strong class="text-amber-950 block mb-1">Saturdays (Strict 15-Minute Rule):</strong>
+                        Supernovice/Novice morning session: <strong>8:15 AM latest entry</strong>. Afternoon sessions (2:00 PM): <strong>2:15 PM latest entry</strong>. No entry accepted after cutoff limit.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TAB: COMPETITIVE ROADMAP & CALENDAR 2026-2027 -->
+        <div id="section-roadmap" class="tab-section hidden space-y-6">
+            
+            <div class="bg-gradient-to-r from-teal-900 via-slate-900 to-teal-950 text-white rounded-2xl p-6 shadow-xl border border-teal-500/30">
+                <span class="bg-teal-400/20 text-teal-300 border border-teal-400/40 text-[11px] font-black uppercase px-3 py-1 rounded-full tracking-wider">
+                    Official Club Framework
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">2026–2027 Competitive Roadmap & Milestones</h2>
+                <p class="text-xs sm:text-sm text-teal-100/90 mt-1 max-w-3xl">
+                    Progressive technical development above mere competition. Built around clear evaluation checkpoints, National Team trial pathways, and international target qualification.
+                </p>
+            </div>
+
+            <!-- Milestone Table -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-4 bg-slate-50 border-b border-slate-200 flex justify-between items-center flex-wrap gap-2">
+                    <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wide"><i class="fas fa-calendar-check text-teal-600 mr-2"></i> Official Calendar & Milestone Roles</h3>
+                    <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full">6 Key Milestones</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-100 text-slate-700 uppercase text-xs font-bold">
+                            <tr>
+                                <th class="p-3">Window</th>
+                                <th class="p-3">Event / Milestone</th>
+                                <th class="p-3">Role in the Pathway & Objectives</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700 text-xs">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-bold text-teal-700 font-mono">OCT 31, 2026</td>
+                                <td class="p-3 font-bold text-slate-900">Figures & Elements Checkpoint</td>
+                                <td class="p-3">First major technical checkpoint. Evaluates figures & elements to determine readiness, level progression, and next training focus.</td>
+                            </tr>
+                            <tr class="bg-orange-50/50 hover:bg-orange-100/50">
+                                <td class="p-3 font-bold text-orange-700 font-mono">NOV 28, 2026</td>
+                                <td class="p-3 font-bold text-slate-900">National Team Trials + Team Routine Qualification</td>
+                                <td class="p-3">National Team Trials for eligible Age Group & Junior athletes. Establishes the team-routine project for Coral Springs 2027.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-bold text-purple-700 font-mono">DECEMBER 2026</td>
+                                <td class="p-3 font-bold text-slate-900">Tornadoes Club Evaluation Process</td>
+                                <td class="p-3">Formal internal evaluation of technical development, consistency, attendance, level promotion readiness, and individual goals.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-bold text-blue-700 font-mono">FEBRUARY 2027*</td>
+                                <td class="p-3 font-bold text-slate-900">Splashquatics — Individual Qual. + Team Verification</td>
+                                <td class="p-3">Target window: 2nd/3rd week of Feb. Planned qualification opportunity for solos and duets for Coral Springs. Practical checkpoint for team-routine candidates.</td>
+                            </tr>
+                            <tr class="bg-amber-50/50 hover:bg-amber-100/50">
+                                <td class="p-3 font-bold text-amber-700 font-mono">MARCH 2027*</td>
+                                <td class="p-3 font-bold text-slate-900">CARIFTA 2027 — National Team Pathway</td>
+                                <td class="p-3">Athletes selected to Jamaica's National Team follow official national preparation pathway. Host TBC.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-bold text-emerald-700 font-mono">APR 30 – MAY 2, 2027</td>
+                                <td class="p-3 font-bold text-slate-900">Worldwide Invitational — Coral Springs, Florida</td>
+                                <td class="p-3">International competition target. Novice through Youth entries are based on February qualification process and final team-routine selection.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Critical Distinction Card -->
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm space-y-2">
+                <h4 class="font-bold text-amber-950 text-sm flex items-center gap-2">
+                    <i class="fas fa-triangle-exclamation text-amber-600"></i> Critical Distinction: November Team Routine vs. February Athlete Selection
+                </h4>
+                <p class="text-xs text-amber-900 leading-relaxed">
+                    <strong>November 28:</strong> Objective is to establish and qualify the team routine for Coral Springs project. Being present in November does not automatically make an athlete a member of the traveling team.<br>
+                    <strong>February (Splashquatics):</strong> Athletes interested in joining the team must demonstrate that they have learned, remembered, and can consistently execute the routine.
+                </p>
+            </div>
+
+            <!-- 5 Training Phases -->
+            <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-900 text-base border-b border-slate-100 pb-2">
+                    <i class="fas fa-layer-group text-teal-600"></i> The 5 Structured Training Phases 2026–2027
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="bg-teal-100 text-teal-800 font-bold px-2 py-0.5 rounded text-[10px] uppercase">Phase 1 | Sep 8 – Sep 30</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">Technical Correction & Foundations</h4>
+                        <p class="text-slate-600 mt-1 leading-relaxed">Correct weaknesses identified through summer technical assessment and establish reliable fundamentals.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="bg-orange-100 text-orange-800 font-bold px-2 py-0.5 rounded text-[10px] uppercase">Phase 2 | Oct 1 – Oct 31</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">Figures & Elements Preparation</h4>
+                        <p class="text-slate-600 mt-1 leading-relaxed">Increase figure-specific work (Novices 70/30, Inter 50/50, 12&U 40/60, Youth 30/70, Juniors 20/80) toward Oct 31 Checkpoint.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded text-[10px] uppercase">Phase 3 | Nov 1 – Nov 28</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">National Team Trials + Team Routine Block</h4>
+                        <p class="text-slate-600 mt-1 leading-relaxed">Increase difficulty, precision, and single-attempt readiness for Nov 28 competition.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded text-[10px] uppercase">Phase 4 | December 2026</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">Club Evaluation & Level Promotions</h4>
+                        <p class="text-slate-600 mt-1 leading-relaxed">Formal internal review of progression and setting 2027 priorities ahead of Jacqueline Simoneau Camp (Dec 30–Jan 1).</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px] uppercase">Phase 5 | Jan – Feb 2027</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">Qualification Preparation</h4>
+                        <p class="text-slate-600 mt-1 leading-relaxed">Prepare solos/duets for Splashquatics process while continuing team-routine execution refinement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Grouping Model (Groups A, B, C, D) -->
+            <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-900 text-base border-b border-slate-100 pb-2">
+                    <i class="fas fa-network-wired text-amber-500"></i> Technical Grouping Model (Skill-Based Advancement)
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                    <div class="bg-gradient-to-b from-slate-50 to-white p-4 rounded-xl border border-slate-200">
+                        <strong class="text-teal-700 font-bold block text-sm">GROUP A</strong>
+                        <span class="text-slate-500 font-bold text-[11px] block">Foundations</span>
+                        <p class="text-slate-600 mt-1">Alignment, extension, pointed feet, basic positions.</p>
+                    </div>
+                    <div class="bg-gradient-to-b from-slate-50 to-white p-4 rounded-xl border border-slate-200">
+                        <strong class="text-teal-700 font-bold block text-sm">GROUP B</strong>
+                        <span class="text-slate-500 font-bold text-[11px] block">Sculling & Support</span>
+                        <p class="text-slate-600 mt-1">Support sculling, height, eggbeater stability.</p>
+                    </div>
+                    <div class="bg-gradient-to-b from-slate-50 to-white p-4 rounded-xl border border-slate-200">
+                        <strong class="text-teal-700 font-bold block text-sm">GROUP C</strong>
+                        <span class="text-slate-500 font-bold text-[11px] block">Advanced Elements</span>
+                        <p class="text-slate-600 mt-1">Rotations, spins, complex figure transitions.</p>
+                    </div>
+                    <div class="bg-gradient-to-b from-slate-50 to-white p-4 rounded-xl border border-slate-200">
+                        <strong class="text-teal-700 font-bold block text-sm">GROUP D</strong>
+                        <span class="text-slate-500 font-bold text-[11px] block">National Preparation</span>
+                        <p class="text-slate-600 mt-1">High difficulty, speed, routine execution under pressure.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NATIONAL TEAM TRIAL MINDSET & PATHWAY TAB -->
+        <div id="section-pathway" class="tab-section hidden space-y-6">
+            
+            <!-- Hero Banner -->
+            <div class="bg-gradient-to-r from-amber-600 via-teal-900 to-slate-900 text-white rounded-2xl p-6 shadow-xl border border-amber-500/30">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[11px] font-black uppercase px-3 py-1 rounded-full tracking-wider">
+                            Official Club Manifesto
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Commitment, Values & Pathway to the National Team</h2>
+                        <p class="text-xs sm:text-sm text-amber-100/90 mt-1 max-w-2xl">
+                            Representing Tornadoes and striving for a spot on the Jamaica National Artistic Swimming Team is one of the highest and most demanding honors an athlete can pursue.
+                        </p>
+                    </div>
+                    <div class="flex gap-2 bg-slate-800/80 p-1.5 rounded-xl border border-slate-700 shrink-0">
+                        <button onclick="togglePathwayView('athlete')" id="btn-pathway-athlete" class="px-4 py-2 rounded-lg text-xs font-bold transition-all bg-amber-500 text-slate-900">
+                            <i class="fas fa-swimmer mr-1"></i> For Athletes
+                        </button>
+                        <button onclick="togglePathwayView('parent')" id="btn-pathway-parent" class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+                            <i class="fas fa-heart mr-1"></i> For Parents
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATHLETE VIEW -->
+            <div id="pathway-athlete-view" class="space-y-6">
+                
+                <!-- Quote Box -->
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-quote-left text-amber-500 text-2xl mt-1"></i>
+                        <div>
+                            <p class="text-sm sm:text-base font-semibold text-amber-950 italic">
+                                "Failure is not the opposite of success; it is a vital part of it. If a trial or score doesn't go as expected, it is simply a starting point to refine your craft and return stronger."
+                            </p>
+                            <span class="text-xs font-bold text-amber-700 mt-1 block">— Tornadoes Coaching Philosophy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- National Team Trial Athletes List -->
+                <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm space-y-3">
+                    <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                        <i class="fas fa-star text-amber-500"></i> Athlete Selection Pathways (Nov 28 vs. Feb 2027)
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+                            <strong class="text-slate-900 block font-bold mb-1">Prepared for November 28 Trials:</strong>
+                            <ul class="list-disc list-inside text-slate-700 space-y-0.5">
+                                <li>Alexis Miller</li>
+                                <li>Janna Nesbeth</li>
+                                <li>Isabelle Dacres</li>
+                                <li>Avril-Renee Montgomery</li>
+                                <li>Elise Wan</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+                            <strong class="text-slate-900 block font-bold mb-1">Developing Toward Potential Feb 2027 Trial:</strong>
+                            <ul class="list-disc list-inside text-slate-700 space-y-0.5">
+                                <li>Zori Morgan</li>
+                                <li>Talisha Higgins</li>
+                                <li>Naoma Grayson</li>
+                                <li>Shiloh Reid</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 1: Personal Responsibility -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                    <div class="flex items-center gap-3 mb-4 border-b border-slate-100 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-extrabold text-lg">
+                            1
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">Your Journey is Individual (Personal Responsibility)</h3>
+                            <p class="text-xs text-slate-500">Although Artistic Swimming is a team sport where we shine together, national selection is walked by each athlete individually.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="font-bold text-slate-900 text-sm mb-1.5 flex items-center gap-2">
+                                <i class="fas fa-dumbbell text-teal-600"></i> No One Can Train For You
+                            </div>
+                            <p class="text-slate-600 leading-relaxed">
+                                Leg height, flexibility, technical precision, lung capacity, and mental toughness depend <strong>100% on your individual effort</strong> in every single practice.
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="font-bold text-slate-900 text-sm mb-1.5 flex items-center gap-2">
+                                <i class="fas fa-user-shield text-teal-600"></i> Autonomy & Maturity
+                            </div>
+                            <p class="text-slate-600 leading-relaxed">
+                                Preparing for the national team means taking full ownership of your nutrition, rest, punctuality, body care, and physical preparation both in and out of the pool.
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="font-bold text-slate-900 text-sm mb-1.5 flex items-center gap-2">
+                                <i class="fas fa-fire text-amber-500"></i> Attitude Defines Progress
+                            </div>
+                            <p class="text-slate-600 leading-relaxed">
+                                During trial evaluations, judges look beyond technical execution—they assess discipline, character, and your ability to perform under high pressure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Core Values Grid -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                    <h3 class="font-bold text-slate-900 text-lg mb-1 flex items-center gap-2">
+                        <i class="fas fa-gem text-amber-500"></i> Discipline & Core Values of a Tornadoes Athlete
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">Talent alone is not enough to wear Tornadoes colors and represent Jamaica. It requires a solid foundation of core values:</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                        <div class="bg-gradient-to-b from-teal-50 to-white p-4 rounded-xl border border-teal-100">
+                            <div class="font-bold text-teal-900 text-sm mb-1 uppercase">Unwavering Discipline</div>
+                            <p class="text-slate-600 leading-relaxed">Giving 100% on every repetition, even when tired or when no one is watching. Adhering to schedules and training plans without excuses.</p>
+                        </div>
+                        <div class="bg-gradient-to-b from-teal-50 to-white p-4 rounded-xl border border-teal-100">
+                            <div class="font-bold text-teal-900 text-sm mb-1 uppercase">Respect & Esprit de Corps</div>
+                            <p class="text-slate-600 leading-relaxed">Respecting coaches, teammates, and officials. Supporting clubmates, remembering that healthy internal competition elevates everyone.</p>
+                        </div>
+                        <div class="bg-gradient-to-b from-teal-50 to-white p-4 rounded-xl border border-teal-100">
+                            <div class="font-bold text-teal-900 text-sm mb-1 uppercase">Consistency</div>
+                            <p class="text-slate-600 leading-relaxed">High performance is not achieved in a single perfect practice, but over weeks and months of steady, uninterrupted effort.</p>
+                        </div>
+                        <div class="bg-gradient-to-b from-teal-50 to-white p-4 rounded-xl border border-teal-100">
+                            <div class="font-bold text-teal-900 text-sm mb-1 uppercase">Humility & Receptivity</div>
+                            <p class="text-slate-600 leading-relaxed">Receiving technical corrections with an open mind, understanding that every critique is meant to refine your execution.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 & 4: High Performance & Subjectivity -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Reality of High Performance -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
+                                <i class="fas fa-layer-group text-teal-600"></i> Reality of High-Performance Training
+                            </h3>
+                            <ul class="space-y-3 text-xs text-slate-700">
+                                <li class="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                                    <i class="fas fa-check-circle text-teal-500 mt-0.5"></i>
+                                    <span><strong>Landwork & Flexibility:</strong> Leg and back flexibility, core strength, and acrobatic conditioning are just as essential as pool time.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                                    <i class="fas fa-check-circle text-teal-500 mt-0.5"></i>
+                                    <span><strong>Technical Mastery:</strong> Precision in height, angles, rotation speed, and buoyancy control requires deliberate, focused repetition.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                                    <i class="fas fa-check-circle text-teal-500 mt-0.5"></i>
+                                    <span><strong>Mental Resilience:</strong> Pushing through fatigue and maintaining composure during selection trials is key for international-level athletes.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Subjectivity & Failing Forward -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
+                                <i class="fas fa-balance-scale text-amber-500"></i> Subjectivity & Failing Forward
+                            </h3>
+                            <div class="space-y-2 text-xs text-slate-600 leading-relaxed mb-3">
+                                <p>
+                                    Artistic swimming is a sport of <strong>subjective appreciation</strong>—there is no stopwatch or finish line. Angles and height look different from the judges' panel than from the deck.
+                                </p>
+                                <p class="bg-amber-50/70 p-2.5 rounded-lg border border-amber-200 text-amber-900">
+                                    Accepting subjective evaluation without bitterness is the mark of a mature athlete. Receiving a lower score or a Base Mark is essential feedback, highlighting the exact millimeter of precision needed to grow.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 text-white p-3.5 rounded-xl text-xs space-y-1">
+                            <div class="font-bold text-amber-400 flex items-center gap-1.5">
+                                <i class="fas fa-trophy"></i> Pioneer Inspiration: Bill May (USA)
+                            </div>
+                            <p class="text-slate-300 text-[11px] leading-relaxed">
+                                Excluded from Olympic competition for decades due to gender rules. Instead of quitting, he performed in Cirque du Soleil, kept pushing boundaries, and became the pioneer who opened doors for male artistic swimmers globally.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PARENT VIEW -->
+            <div id="pathway-parent-view" class="hidden space-y-6">
+                
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-xl shadow-sm">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-heart text-blue-500 text-2xl mt-1"></i>
+                        <div>
+                            <p class="text-sm font-semibold text-blue-950">
+                                Parents are the emotional anchor of our athletes. Your support, calm guidance, and encouragement of autonomy are essential for your daughter's long-term success on the National Team Pathway.
+                            </p>
+                            <span class="text-xs font-bold text-blue-700 mt-1 block">— Tornadoes Parent Support Charter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 space-y-2">
+                        <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm mb-2">
+                            <i class="fas fa-shield-heart"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm">1. Be an Emotional Safe Harbor</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Trial preparation is mentally taxing. Praise effort, resilience, and discipline rather than placing pressure on scores or final squad placements.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 space-y-2">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm mb-2">
+                            <i class="fas fa-hands-holding-child"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm">2. Encourage Athlete Autonomy</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Allow your athlete to manage her swim bag, gear, water bottle, and punctuality. Autonomy in dryland builds character and judges recognize independent maturity.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 space-y-2">
+                        <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-sm mb-2">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm">3. Model Respect for Judging</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Help your athlete view judge feedback and Base Marks as constructive guidance. When parents handle scores with poise, athletes bounce back faster and stronger.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="bg-slate-900 text-white rounded-xl p-6 shadow-md flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                        <h4 class="font-bold text-base text-amber-400 flex items-center gap-2">
+                            <i class="fas fa-clipboard-check"></i> Parent Trial Preparation Checklist
+                        </h4>
+                        <p class="text-xs text-slate-300 mt-1">Ensure your athlete arrives focused, nourished, and equipped for mandatory Wednesday & Saturday sessions.</p>
+                    </div>
+                    <button onclick="switchTab('gear')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-4 py-2 rounded-lg text-xs shrink-0 transition-colors">
+                        View Required Gear Checklist
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TAB: OFFICIAL EVALUATION SHEETS & DIGITAL ROUTINE CATALOGUES 2026 -->
+        <div id="section-eval-sheets" class="tab-section hidden space-y-6">
+            
+            <div class="bg-gradient-to-r from-purple-900 via-teal-900 to-slate-900 text-white rounded-xl p-5 shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="bg-purple-400/20 text-purple-300 border border-purple-400/30 text-[10px] font-black uppercase px-2.5 py-1 rounded-full">Official 2026 Evaluation Standards</span>
+                    <h2 class="text-xl font-bold mt-1"><i class="fas fa-clipboard-list text-purple-400"></i> Technical Evaluation Forms & Digital Catalogues</h2>
+                    <p class="text-xs text-purple-200 mt-0.5">Review the 10 Figure elements (F1-F10), 10 Routine elements (R1-R10), and 5 Land elements (L1-L5) evaluated by Staff.</p>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                    <label class="text-xs font-bold text-slate-300 uppercase">Select Squad:</label>
+                    <select id="eval-squad-selector" onchange="renderEvalCatalogueView(this.value)" class="bg-slate-800 text-white border border-teal-500/50 rounded-lg text-xs p-2 font-bold focus:ring-2 focus:ring-teal-400">
+                        <option value="supernovices">Supernovices 2026</option>
+                        <option value="novices" selected>Novices 2026</option>
+                        <option value="intermediate">Intermediate 2026</option>
+                        <option value="youth">Youth 2026</option>
+                        <option value="juniors">Juniors 2026</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dynamic Evaluation Sheet & Catalogue Renderer -->
+            <div id="eval-catalogue-display-container">
+                <!-- Content generated via JavaScript depending on selected squad level -->
+            </div>
+
+            <!-- Official 12 General Evaluation Conditions Card -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-4">
+                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <i class="fas fa-gavel text-amber-500"></i> General Evaluation Conditions (Rules 1 to 12)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs text-slate-700">
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">1. Attire Code:</strong>
+                        Unmarked black suit and white cap for all in-water evaluations.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">2. Complete Assessment:</strong>
+                        All 25 elements (F1-F10, R1-R10, L1-L5) must be attempted and scored.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">3. Overall Score Calculation:</strong>
+                        Average of the 25 cells multiplied by 10 (e.g. Average 5.8 = Overall score 58).
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">4. Passing Benchmark:</strong>
+                        Average ≥ 5.0 required for Bronze Rating (Juniors require International Target ≥ 7.0).
+                    </div>
+                    <div class="bg-amber-50 p-3 rounded-lg border border-amber-200 text-amber-900">
+                        <strong class="block mb-0.5">5. Failure Threshold:</strong>
+                        If more than 2 elements have a score less than 4.5 (or ≤ 5.5 in Juniors), it is an automatic fail.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">6. Stationarity Rule:</strong>
+                        Movements performed relatively stationary and in uniform motion unless noted otherwise.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">7. Single Attempt Standard:</strong>
+                        Assessments mimic real competition; swimmers are allowed only ONE attempt per element.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">8. Dry Land Wear:</strong>
+                        Stretch shorts/leggings required for land skills (L1-L5). No jeans permitted.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">9. Coaching Feedback:</strong>
+                        Coaches highlight areas needing proficiency in official comments box.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">10. No Replays Policy:</strong>
+                        No replays offered unless explicitly requested by head coach.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">11. World Aquatics Standards:</strong>
+                        All figures judged strictly following current World Aquatics judging guide.
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5">12. Communication Protocol:</strong>
+                        Any evaluation concerns must be communicated directly to coach in charge.
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- TAB 2: REQUIRED GEAR LIST BY CATEGORY -->
@@ -239,9 +836,50 @@
                         <i class="fas fa-toolbox"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold">Mandatory Athlete Gear & Equipment Matrix</h2>
-                        <p class="text-xs text-slate-300">Category-specific checklist for pool sessions, land conditioning, and national trials.</p>
+                        <h2 class="text-xl font-bold">Mandatory Athlete Gear & Equipment Requirements</h2>
+                        <p class="text-xs text-slate-300">Category-specific checklist for pool sessions, land conditioning, and figure evaluation attire.</p>
                     </div>
+                </div>
+            </div>
+
+            <!-- Amazon Quick Links Matrix -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-3">
+                <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2 border-b border-slate-100 pb-2">
+                    <i class="fas fa-cart-shopping text-teal-600"></i> Standardized Training Equipment Links (Amazon)
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 text-xs">
+                    <a href="https://www.amazon.com/s?k=yoga+mat" target="_blank" rel="noopener noreferrer" class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:border-teal-500 transition-colors block">
+                        <div class="font-bold text-slate-900">Yoga Mat</div>
+                        <div class="text-[11px] text-teal-600 mt-0.5">Required for dryland work</div>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=plain+white+swim+cap" target="_blank" rel="noopener noreferrer" class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:border-teal-500 transition-colors block">
+                        <div class="font-bold text-slate-900">White Swim Cap</div>
+                        <div class="text-[11px] text-teal-600 mt-0.5">Plain, unbranded for figures</div>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=swimming+goggles" target="_blank" rel="noopener noreferrer" class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:border-teal-500 transition-colors block">
+                        <div class="font-bold text-slate-900">Clear Goggles</div>
+                        <div class="text-[11px] text-teal-600 mt-0.5">Required for all practices</div>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=synchronised+swimming+nose+clip" target="_blank" rel="noopener noreferrer" class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:border-teal-500 transition-colors block">
+                        <div class="font-bold text-slate-900">Nose Clips (Min. 2)</div>
+                        <div class="text-[11px] text-teal-600 mt-0.5">Silicone competitive clips</div>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=stretch+elastic+bands" target="_blank" rel="noopener noreferrer" class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:border-teal-500 transition-colors block">
+                        <div class="font-bold text-slate-900">Stretch Elastic Bands</div>
+                        <div class="text-[11px] text-teal-600 mt-0.5">For flexibility / technical work</div>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=foot+point+bands" target="_blank" rel="noopener noreferrer" class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:border-teal-500 transition-colors block">
+                        <div class="font-bold text-slate-900">Point Bands</div>
+                        <div class="text-[11px] text-teal-600 mt-0.5">For foot/point articulation</div>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=ankle+weights" target="_blank" rel="noopener noreferrer" class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:border-teal-500 transition-colors block">
+                        <div class="font-bold text-slate-900">Ankle Weights</div>
+                        <div class="text-[11px] text-teal-600 mt-0.5">1 lb (small) / 2 lb (taller)</div>
+                    </a>
+                    <a href="https://www.amazon.com/s?k=crocs" target="_blank" rel="noopener noreferrer" class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:border-teal-500 transition-colors block">
+                        <div class="font-bold text-slate-900">Crocs / Deck Footwear</div>
+                        <div class="text-[11px] text-teal-600 mt-0.5">For moving between areas</div>
+                    </a>
                 </div>
             </div>
 
@@ -258,7 +896,7 @@
                     <ul class="space-y-2 text-sm text-slate-700">
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Wear:</strong> Plain black standard swimsuit & white swim cap.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Gear:</strong> Clear goggles + 2 silicone nose clips (labeled).</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Land Gear:</strong> Yoga mat, light resistance loop bands, black shorts/leggings.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Land Gear:</strong> Yoga mat, light resistance loop bands, point bands, Crocs.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Hydration:</strong> Insulated 1L reusable water bottle.</span></li>
                     </ul>
                 </div>
@@ -275,7 +913,7 @@
                     <ul class="space-y-2 text-sm text-slate-700">
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Wear:</strong> Solid black training suit + Tornadoes official club cap.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Gear:</strong> 2x nose clips, stationary sculling pads/buoys.</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Conditioning:</strong> Yoga mat, medium resistance bands, 0.5kg ankle weights.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Conditioning:</strong> Yoga mat, medium resistance bands, 1 lb ankle weights.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Hair Kit:</strong> Gelatin (Knox), hairpins, hairnet for trial rehearsals.</span></li>
                     </ul>
                 </div>
@@ -292,7 +930,7 @@
                     <ul class="space-y-2 text-sm text-slate-700">
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Wear:</strong> Black high-neck training suits, white & club caps.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Gear:</strong> Spare nose clips (min. 3), figure testing white cap.</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Land Gear:</strong> High-density yoga mat, heavy resistance bands, jump rope.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Land Gear:</strong> High-density yoga mat, heavy resistance bands, 1-2 lb ankle weights.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Trial Gear:</strong> Plain black trial suit (no logos for judge anonymity).</span></li>
                     </ul>
                 </div>
@@ -308,7 +946,7 @@
                     </div>
                     <ul class="space-y-2 text-sm text-slate-700">
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Gear:</strong> Standard black trial suits, club cap, competitive nose clips.</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Land Tech:</strong> Flexibility stretching blocks, heavy resistance loops.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Land Tech:</strong> Flexibility stretching blocks, heavy resistance loops, 2 lb ankle weights.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Routine Tools:</strong> Personal dryland count/music player.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Hair & Makeup:</strong> Full gelatin presentation kit & neutral gel set.</span></li>
                     </ul>
@@ -324,11 +962,23 @@
                         <i class="fas fa-trophy text-amber-500 text-xl"></i>
                     </div>
                     <ul class="space-y-2 text-sm text-slate-700">
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Wear:</strong> FINA/World Aquatics approved plain trial black suit + plain white cap.</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Conditioning:</strong> 1.0kg ankle weights, stretch bands, core yoga mat.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Pool Wear:</strong> World Aquatics approved plain trial black suit + plain white cap.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Conditioning:</strong> 2 lb ankle weights, stretch bands, core yoga mat.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Trials Kit:</strong> 4x backup nose clips, custom routine count sheet, timer.</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-teal-500 mt-1"></i> <span><strong>Recovery:</strong> Foam roller, hydration electrolyte packs.</span></li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Standardized Figure Attire Box -->
+            <div class="bg-slate-900 text-white rounded-xl p-5 shadow-md flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <h4 class="font-bold text-base text-amber-400 flex items-center gap-2">
+                        <i class="fas fa-shield-halved"></i> Standardized World Aquatics Figure Attire
+                    </h4>
+                    <p class="text-xs text-slate-300 mt-1">
+                        The black swimsuit and white swim cap must be completely plain with no brands, logos, names, or letters. Intended to maintain clean, uniform, and professional presentation before judges.
+                    </p>
                 </div>
             </div>
         </div>
@@ -342,124 +992,7 @@
                     </div>
                     <div>
                         <h2 class="text-xl font-bold">World Aquatics & USAAS Official Figures & TRE Catalog</h2>
-                        <p class="text-xs text-teal-200">Degree of Difficulty (DD), Novice compulsory figures, 12 & Under compulsory/optional groups, 13–15 Youth Groups, and Technical Required Elements (TRE) for Solos and Duets.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 12 & Under Figures Summary Cards -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
-                <h3 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
-                    <i class="fas fa-child text-teal-600"></i> 12 & Under Figures Groups (Compulsory & Optionals)
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-                    <div class="bg-teal-50 p-3 rounded-xl border border-teal-200">
-                        <span class="font-bold text-teal-900 uppercase">Compulsory</span>
-                        <ul class="list-disc list-inside text-slate-700 mt-1.5 space-y-1">
-                            <li><strong>106</strong> Ballet Leg, Straight (DD 1.6)</li>
-                            <li><strong>301</strong> Barracuda (DD 1.9)</li>
-                        </ul>
-                    </div>
-                    <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
-                        <span class="font-bold text-emerald-900 uppercase">Optional - Group 1</span>
-                        <ul class="list-disc list-inside text-slate-700 mt-1.5 space-y-1">
-                            <li><strong>359</strong> Front Ariana (DD 2.2)</li>
-                            <li><strong>348</strong> Tower (DD 1.9)</li>
-                        </ul>
-                    </div>
-                    <div class="bg-blue-50 p-3 rounded-xl border border-blue-200">
-                        <span class="font-bold text-blue-900 uppercase">Optional - Group 2</span>
-                        <ul class="list-disc list-inside text-slate-700 mt-1.5 space-y-1">
-                            <li><strong>363</strong> Water Drop (DD 1.8)</li>
-                            <li><strong>401</strong> Swordfish (DD 2.0)</li>
-                        </ul>
-                    </div>
-                    <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-200">
-                        <span class="font-bold text-indigo-900 uppercase">Optional - Group 3</span>
-                        <ul class="list-disc list-inside text-slate-700 mt-1.5 space-y-1">
-                            <li><strong>311</strong> Kip (DD 1.8)</li>
-                            <li><strong>227d</strong> Swanita, Spinning 180 (DD 1.9)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 13–15 Youth Figures Summary Cards (Sections A, B, C) -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-3">
-                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
-                    <i class="fas fa-fire text-orange-600"></i> 13–15 Youth Figures Groups (Section A, B, C)
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                    <!-- Section A -->
-                    <div class="bg-orange-50 p-3 rounded-xl border border-orange-200">
-                        <div class="font-bold text-orange-900 uppercase mb-1">Section A</div>
-                        <div class="space-y-1.5 text-slate-700">
-                            <div><strong>Group 1:</strong> 307e Flying Fish Spin 360 | 437 Cyclone Open 180</div>
-                            <div><strong>Group 2:</strong> 308h Barracuda Airborne Split Spin Up 180 | 407 Swordfish Straight Leg Ariana</div>
-                        </div>
-                    </div>
-                    <!-- Section B -->
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
-                        <div class="font-bold text-amber-900 uppercase mb-1">Section B</div>
-                        <div class="space-y-1.5 text-slate-700">
-                            <div><strong>Group 3:</strong> 356f Whip Cont. Spin 720 | 441 Saturn</div>
-                            <div><strong>Group 4:</strong> 352 Venus | 240i Albatross Spin Up 360</div>
-                        </div>
-                    </div>
-                    <!-- Section C -->
-                    <div class="bg-rose-50 p-3 rounded-xl border border-rose-200">
-                        <div class="font-bold text-rose-900 uppercase mb-1">Section C</div>
-                        <div class="space-y-1.5 text-slate-700">
-                            <div><strong>Group 5:</strong> 140j Flamingo Bent Knee Comb. Spin 360+360 | 421 Walkover Back Closing 360</div>
-                            <div><strong>Group 6:</strong> 440d Ipanema Spinning 180 | 154f London Cont. Spin 720</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technical Required Elements (TRE) Summary for Solos & Duets -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
-                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
-                    <i class="fas fa-certificate text-purple-600"></i> World Aquatics Technical Required Elements (TRE) - Solos & Duets
-                </h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                    <!-- Solo TREs -->
-                    <div class="bg-purple-50 p-4 rounded-xl border border-purple-200">
-                        <div class="font-bold text-purple-900 text-sm mb-2 flex items-center justify-between">
-                            <span><i class="fas fa-user-ninja mr-1"></i> Solo Technical Required Elements (1A–5B)</span>
-                            <span class="bg-purple-200 text-purple-800 px-2 py-0.5 rounded text-[10px]">World Aquatics Code</span>
-                        </div>
-                        <ul class="space-y-1.5 text-slate-700">
-                            <li><strong>1A TRE:</strong> Thrust Continuous Spin 720° <span class="text-slate-400">(26.67 MB ref)</span></li>
-                            <li><strong>1B TRE:</strong> Thrust Spinning 360° <span class="text-slate-400">(15.74 MB ref)</span></li>
-                            <li><strong>2A TRE:</strong> Combined Spin 1080°, Continuous Spin 1080° <span class="text-slate-400">(40.49 MB ref)</span></li>
-                            <li><strong>2B TRE:</strong> Combined Spin 720°, Continuous Spin 1080 <span class="text-slate-400">(33.59 MB ref)</span></li>
-                            <li><strong>3 TRE:</strong> Swordfish Straight Leg, Knight <span class="text-slate-400">(30.46 MB ref)</span></li>
-                            <li><strong>4A TRE:</strong> Fishtail Half Twist, Continuous Spin 720° <span class="text-slate-400">(38.23 MB ref)</span></li>
-                            <li><strong>4B TRE:</strong> Fishtail, Continuous Spin 720 <span class="text-slate-400">(36.79 MB ref)</span></li>
-                            <li><strong>5A TRE:</strong> Rocket Split Bent Knee Joining 360° <span class="text-slate-400">(14.61 MB ref)</span></li>
-                            <li><strong>5B TRE:</strong> Rocket Split Bent Knee <span class="text-slate-400">(12.54 MB ref)</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- Duet TREs -->
-                    <div class="bg-cyan-50 p-4 rounded-xl border border-cyan-200">
-                        <div class="font-bold text-cyan-900 text-sm mb-2 flex items-center justify-between">
-                            <span><i class="fas fa-user-friends mr-1"></i> Female Duet Technical Required Elements (1A–5B)</span>
-                            <span class="bg-cyan-200 text-cyan-800 px-2 py-0.5 rounded text-[10px]">World Aquatics Code</span>
-                        </div>
-                        <ul class="space-y-1.5 text-slate-700">
-                            <li><strong>1A TRE:</strong> Walkover Back Closing 360, Continuous Spin 1080 <span class="text-slate-400">(4.04 MB ref)</span></li>
-                            <li><strong>1B TRE:</strong> Walkover Back Closing 180, Continuous Spin 720 <span class="text-slate-400">(7.55 MB ref)</span></li>
-                            <li><strong>2A TRE:</strong> Rocket Split Alternating Legs Spinning 180 <span class="text-slate-400">(1.36 MB ref)</span></li>
-                            <li><strong>2B TRE:</strong> Rocket Split, Spinning 180 <span class="text-slate-400">(4.71 MB ref)</span></li>
-                            <li><strong>3 TRE:</strong> Flamingo Bent Knee Rollback, Join to VP, Half Twist, 360 open to split, Walkout <span class="text-slate-400">(5.11 MB ref)</span></li>
-                            <li><strong>4A TRE:</strong> Fishtail, Knight, Continuous Spin 1080 <span class="text-slate-400">(3.42 MB ref)</span></li>
-                            <li><strong>4B TRE:</strong> Fishtail, Knight, Continuous Spin 720 <span class="text-slate-400">(6.9 MB ref)</span></li>
-                            <li><strong>5A TRE:</strong> Thrust Bent Knee Twirl Spin 360 <span class="text-slate-400">(1.26 MB ref)</span></li>
-                            <li><strong>5B TRE:</strong> Thrust, Bent Knee Twirl <span class="text-slate-400">(4.83 MB ref)</span></li>
-                        </ul>
+                        <p class="text-xs text-teal-200">Degree of Difficulty (DD), Novice & Intermediate compulsory figures, 12&U groups, 13–15 Youth Groups, and Technical Required Elements (TRE) for Solos & Duets.</p>
                     </div>
                 </div>
             </div>
@@ -482,6 +1015,66 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <!-- Novice Compulsory Figures -->
+                            <tr class="bg-slate-50 hover:bg-slate-100 transition-colors">
+                                <td class="p-3 font-mono font-bold text-slate-700">101</td>
+                                <td class="p-3 font-semibold text-slate-900">Bent Knee Alternate</td>
+                                <td class="p-3"><span class="bg-slate-200 text-slate-800 text-xs px-2 py-0.5 rounded font-bold">Novice (USAAS)</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">1.1</td>
+                                <td class="p-3 text-xs">Smooth bent knee transition, 90° perpendicular thigh alignment, stable horizontal line.</td>
+                            </tr>
+                            <tr class="bg-slate-50 hover:bg-slate-100 transition-colors">
+                                <td class="p-3 font-mono font-bold text-slate-700">201</td>
+                                <td class="p-3 font-semibold text-slate-900">Dolphin</td>
+                                <td class="p-3"><span class="bg-slate-200 text-slate-800 text-xs px-2 py-0.5 rounded font-bold">Novice (USAAS)</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">1.4</td>
+                                <td class="p-3 text-xs">Fluid backward arc entry, continuous head-first gliding rotation along a circular path.</td>
+                            </tr>
+                            <tr class="bg-slate-50 hover:bg-slate-100 transition-colors">
+                                <td class="p-3 font-mono font-bold text-slate-700">358</td>
+                                <td class="p-3 font-semibold text-slate-900">Snapping Turtle</td>
+                                <td class="p-3"><span class="bg-slate-200 text-slate-800 text-xs px-2 py-0.5 rounded font-bold">Novice (USAAS)</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">1.7</td>
+                                <td class="p-3 text-xs">Controlled tuck surface entry, sharp 180° rotation, stable vertical descent line.</td>
+                            </tr>
+                            <tr class="bg-slate-50 hover:bg-slate-100 transition-colors">
+                                <td class="p-3 font-mono font-bold text-slate-700">316</td>
+                                <td class="p-3 font-semibold text-slate-900">Kipnus</td>
+                                <td class="p-3"><span class="bg-slate-200 text-slate-800 text-xs px-2 py-0.5 rounded font-bold">Novice (USAAS)</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">1.4</td>
+                                <td class="p-3 text-xs">Submerged compact tuck roll, clean vertical extension, balanced support scull.</td>
+                            </tr>
+
+                            <!-- Intermediate Compulsory Figures -->
+                            <tr class="bg-sky-50/50 hover:bg-sky-100/50 transition-colors">
+                                <td class="p-3 font-mono font-bold text-sky-700">344</td>
+                                <td class="p-3 font-semibold text-slate-900">Neptunus</td>
+                                <td class="p-3"><span class="bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded font-bold">Intermediate (USAAS)</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">1.7</td>
+                                <td class="p-3 text-xs">Precise fishtail extension, smooth hip arch transition, clean surface recovery.</td>
+                            </tr>
+                            <tr class="bg-sky-50/50 hover:bg-sky-100/50 transition-colors">
+                                <td class="p-3 font-mono font-bold text-sky-700">301</td>
+                                <td class="p-3 font-semibold text-slate-900">Barracuda</td>
+                                <td class="p-3"><span class="bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded font-bold">Intermediate (USAAS)</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">1.8</td>
+                                <td class="p-3 text-xs">Explosive thrust elevation to ankles, unbent vertical descent, centered stability.</td>
+                            </tr>
+                            <tr class="bg-sky-50/50 hover:bg-sky-100/50 transition-colors">
+                                <td class="p-3 font-mono font-bold text-sky-700">420</td>
+                                <td class="p-3 font-semibold text-slate-900">Walkover, Back</td>
+                                <td class="p-3"><span class="bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded font-bold">Intermediate (USAAS)</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">1.9</td>
+                                <td class="p-3 text-xs">Fluid back layout arching entry, wide 180° split angle cadence, steady walkout.</td>
+                            </tr>
+                            <tr class="bg-sky-50/50 hover:bg-sky-100/50 transition-colors">
+                                <td class="p-3 font-mono font-bold text-sky-700">318</td>
+                                <td class="p-3 font-semibold text-slate-900">Kip, Bent Knee</td>
+                                <td class="p-3"><span class="bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded font-bold">Intermediate (USAAS)</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">1.8</td>
+                                <td class="p-3 text-xs">Submerged bent knee tuck roll, vertical extension lock, smooth leg joining descent.</td>
+                            </tr>
+
                             <!-- 12 & Under Figures -->
                             <tr class="bg-teal-50/40 hover:bg-teal-100/50 transition-colors">
                                 <td class="p-3 font-mono font-bold text-teal-700">106</td>
@@ -496,20 +1089,6 @@
                                 <td class="p-3"><span class="bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded font-bold">12 & Under Compulsory</span></td>
                                 <td class="p-3 text-center font-bold text-orange-600">1.9</td>
                                 <td class="p-3 text-xs">Explosive thrust speed out of water, vertical height to ankles, unbent descent.</td>
-                            </tr>
-                            <tr class="bg-emerald-50/30 hover:bg-emerald-100/40 transition-colors">
-                                <td class="p-3 font-mono font-bold text-emerald-700">359</td>
-                                <td class="p-3 font-semibold text-slate-900">Front Ariana</td>
-                                <td class="p-3"><span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded font-bold">12 & Under Opt. Grp 1</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">2.2</td>
-                                <td class="p-3 text-xs">Smooth front walkover arch transition, wide split angle, steady surface recovery.</td>
-                            </tr>
-                            <tr class="bg-emerald-50/30 hover:bg-emerald-100/40 transition-colors">
-                                <td class="p-3 font-mono font-bold text-emerald-700">348</td>
-                                <td class="p-3 font-semibold text-slate-900">Tower</td>
-                                <td class="p-3"><span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded font-bold">12 & Under Opt. Grp 1</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">1.9</td>
-                                <td class="p-3 text-xs">Fluid ballet leg double transition into vertical elevation and controlled descent line.</td>
                             </tr>
 
                             <!-- 13–15 Youth Figures -->
@@ -526,68 +1105,6 @@
                                 <td class="p-3"><span class="bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded font-bold">13–15 Youth Sec. A Grp 1</span></td>
                                 <td class="p-3 text-center font-bold text-orange-600">2.4</td>
                                 <td class="p-3 text-xs">Continuous body walkover rotation, precise 180° open split execution line.</td>
-                            </tr>
-                            <tr class="bg-amber-50/40 hover:bg-amber-100/50 transition-colors">
-                                <td class="p-3 font-mono font-bold text-amber-700">356f</td>
-                                <td class="p-3 font-semibold text-slate-900">Whip, Continuous Spin 720</td>
-                                <td class="p-3"><span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded font-bold">13–15 Youth Sec. B Grp 3</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">2.6</td>
-                                <td class="p-3 text-xs">Rapid leg whip action followed immediately by balanced 720° continuous spin.</td>
-                            </tr>
-                            <tr class="bg-rose-50/40 hover:bg-rose-100/50 transition-colors">
-                                <td class="p-3 font-mono font-bold text-rose-700">140j</td>
-                                <td class="p-3 font-semibold text-slate-900">Flamingo, Bent Knee, Combined Spin 360+360</td>
-                                <td class="p-3"><span class="bg-rose-100 text-rose-800 text-xs px-2 py-0.5 rounded font-bold">13–15 Youth Sec. C Grp 5</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">2.8</td>
-                                <td class="p-3 text-xs">Stable surface flamingo stance, clean 360° spin lock into second 360° rotation.</td>
-                            </tr>
-
-                            <!-- USAAS Novice Compulsory Figures -->
-                            <tr class="bg-slate-50 hover:bg-slate-100 transition-colors">
-                                <td class="p-3 font-mono font-bold text-slate-700">101</td>
-                                <td class="p-3 font-semibold text-slate-900">Bent Knee Alternate</td>
-                                <td class="p-3"><span class="bg-slate-200 text-slate-800 text-xs px-2 py-0.5 rounded font-bold">Novice (USAAS 22-25)</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">1.1</td>
-                                <td class="p-3 text-xs">Smooth bent knee transition, 90° perpendicular thigh alignment, stable horizontal line.</td>
-                            </tr>
-                            <tr class="bg-slate-50 hover:bg-slate-100 transition-colors">
-                                <td class="p-3 font-mono font-bold text-slate-700">201</td>
-                                <td class="p-3 font-semibold text-slate-900">Dolphin</td>
-                                <td class="p-3"><span class="bg-slate-200 text-slate-800 text-xs px-2 py-0.5 rounded font-bold">Novice (USAAS 22-25)</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">1.4</td>
-                                <td class="p-3 text-xs">Fluid backward arc entry, continuous head-first gliding rotation along a circular path.</td>
-                            </tr>
-
-                            <!-- Solo TREs -->
-                            <tr class="bg-purple-50/30 hover:bg-purple-100/40 transition-colors">
-                                <td class="p-3 font-mono font-bold text-purple-700">TRE 1A/1B</td>
-                                <td class="p-3 font-semibold text-slate-900">Solo TRE 1: Thrust Continuous Spin 720° / 360°</td>
-                                <td class="p-3"><span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded font-bold">Solo TRE (Junior/Senior)</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">2.7 - 3.1</td>
-                                <td class="p-3 text-xs">Maximum thrust height, rapid rotation speed, perfectly centered vertical axis.</td>
-                            </tr>
-                            <tr class="bg-purple-50/30 hover:bg-purple-100/40 transition-colors">
-                                <td class="p-3 font-mono font-bold text-purple-700">TRE 2A/2B</td>
-                                <td class="p-3 font-semibold text-slate-900">Solo TRE 2: Combined Spin 1080° / 720° + 1080°</td>
-                                <td class="p-3"><span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded font-bold">Solo TRE (Junior/Senior)</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">3.0 - 3.4</td>
-                                <td class="p-3 text-xs">High vertical stability, precise multi-rotation speed without lean angle distortion.</td>
-                            </tr>
-
-                            <!-- Duet TREs -->
-                            <tr class="bg-cyan-50/30 hover:bg-cyan-100/40 transition-colors">
-                                <td class="p-3 font-mono font-bold text-cyan-700">TRE 1A/1B</td>
-                                <td class="p-3 font-semibold text-slate-900">Duet TRE 1: Walkover Back Closing 360/180 + Spin</td>
-                                <td class="p-3"><span class="bg-cyan-100 text-cyan-800 text-xs px-2 py-0.5 rounded font-bold">Duet TRE (Junior/Senior)</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">2.8 - 3.2</td>
-                                <td class="p-3 text-xs">Synchronized back walkover arch, simultaneous spin rotation cadence and height.</td>
-                            </tr>
-                            <tr class="bg-cyan-50/30 hover:bg-cyan-100/40 transition-colors">
-                                <td class="p-3 font-mono font-bold text-cyan-700">TRE 3</td>
-                                <td class="p-3 font-semibold text-slate-900">Duet TRE 3: Flamingo Bent Knee Rollback, VP, Half Twist, 360 Split</td>
-                                <td class="p-3"><span class="bg-cyan-100 text-cyan-800 text-xs px-2 py-0.5 rounded font-bold">Duet TRE (Junior/Senior)</span></td>
-                                <td class="p-3 text-center font-bold text-orange-600">3.2</td>
-                                <td class="p-3 text-xs">Synchronized rollback rhythm, tight vertical position lock, sharp 360° split opening.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -609,7 +1126,6 @@
                 </div>
             </div>
 
-            <!-- WA Scoring Pillars Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
                     <div class="flex items-center gap-2 mb-2 text-cyan-700 font-bold text-base">
@@ -636,64 +1152,6 @@
                     </p>
                 </div>
             </div>
-
-            <!-- 6 Hybrid Families Card -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
-                <h3 class="font-bold text-slate-900 text-base mb-3 flex items-center gap-2">
-                    <i class="fas fa-sitemap text-teal-600"></i> The 6 Movement Families in Free Hybrids (WA Difficulty Table)
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
-                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div class="font-bold text-xs text-teal-800">Thrusts (T)</div>
-                        <div class="text-[11px] text-slate-500 mt-1">TB to T9</div>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div class="font-bold text-xs text-teal-800">Spins (S)</div>
-                        <div class="text-[11px] text-slate-500 mt-1">SB to S10</div>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div class="font-bold text-xs text-teal-800">Twists / Twirls (R)</div>
-                        <div class="text-[11px] text-slate-500 mt-1">RB to R10</div>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div class="font-bold text-xs text-teal-800">Airborne Weight (A)</div>
-                        <div class="text-[11px] text-slate-500 mt-1">AB to A8</div>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div class="font-bold text-xs text-teal-800">Flexibility (F)</div>
-                        <div class="text-[11px] text-slate-500 mt-1">FB to F10</div>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div class="font-bold text-xs text-teal-800">Connections (C)</div>
-                        <div class="text-[11px] text-slate-500 mt-1">CB to C7</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- WA Penalties & Standards Table -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-3">
-                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
-                    <i class="fas fa-triangle-exclamation text-amber-500"></i> World Aquatics Key Penalties & Execution Limits
-                </h3>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
-                    <li class="bg-amber-50/60 p-3 rounded-lg border border-amber-200/60 flex items-start gap-2">
-                        <i class="fas fa-ban text-amber-600 mt-0.5"></i>
-                        <span><strong>Bottom of Pool Penalty (-8.0 Pts):</strong> Deliberately pushing off or using pool floor during a hybrid or lift result in a massive deduction.</span>
-                    </li>
-                    <li class="bg-amber-50/60 p-3 rounded-lg border border-amber-200/60 flex items-start gap-2">
-                        <i class="fas fa-stopwatch text-amber-600 mt-0.5"></i>
-                        <span><strong>Deck Work Limit (10 Seconds):</strong> Deck movements before entering water cannot exceed 10 seconds. Overtime incurs a -2.0 penalty.</span>
-                    </li>
-                    <li class="bg-amber-50/60 p-3 rounded-lg border border-amber-200/60 flex items-start gap-2">
-                        <i class="fas fa-file-circle-xmark text-amber-600 mt-0.5"></i>
-                        <span><strong>Base Mark (BM) Trigger:</strong> If an athlete performs lower difficulty than declared on the Coach Card, default minimum Base Mark DD is awarded.</span>
-                    </li>
-                    <li class="bg-amber-50/60 p-3 rounded-lg border border-amber-200/60 flex items-start gap-2">
-                        <i class="fas fa-rotate text-amber-600 mt-0.5"></i>
-                        <span><strong>Rotation Allowances:</strong> 360° rotations have a 90° tolerance; 180° rotations must be exact with no under-rotation allowance.</span>
-                    </li>
-                </ul>
-            </div>
         </div>
 
         <!-- TAB 5: ASAJ SYNCHRO INFO -->
@@ -707,30 +1165,6 @@
                         <h2 class="text-xl font-bold">Aquatic Sports Association of Jamaica (ASAJ) Synchro Division</h2>
                         <p class="text-xs text-amber-100">Jamaica's governing body for aquatic disciplines, national selection guidelines, and regional competition pathways.</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 space-y-3">
-                    <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
-                        <i class="fas fa-passport text-amber-600"></i> ASAJ Jamaican National Selection Policy
-                    </h3>
-                    <ul class="space-y-2 text-xs text-slate-700">
-                        <li class="flex items-start gap-2"><i class="fas fa-check text-teal-600 mt-0.5"></i> <span><strong>Mandatory Trial Sessions:</strong> Candidates must maintain attendance in Wednesday (4:00-6:30 PM) & Saturday (2:00-5:00 PM) trial training sessions.</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check text-teal-600 mt-0.5"></i> <span><strong>Single Attempt Standard:</strong> Trial figures and element evaluations strictly enforce single-attempt scoring to ensure high competitive discipline.</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check text-teal-600 mt-0.5"></i> <span><strong>Passport Eligibility:</strong> Athletes representing Jamaica internationally (CCCAN, PANAM) must hold a valid Jamaican passport.</span></li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 space-y-3">
-                    <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
-                        <i class="fas fa-globe-americas text-blue-600"></i> Regional Pathways & Meets
-                    </h3>
-                    <ul class="space-y-2 text-xs text-slate-700">
-                        <li class="flex items-start gap-2"><i class="fas fa-star text-amber-500 mt-0.5"></i> <span><strong>ASAJ Dev Meet & Trials (Nov 28):</strong> First official national selection benchmark.</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-star text-amber-500 mt-0.5"></i> <span><strong>CCCAN Championships:</strong> Central American and Caribbean regional competition pipeline.</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-star text-amber-500 mt-0.5"></i> <span><strong>Panam Aquatics Age Group:</strong> Elite international target for Youth and Junior squads.</span></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -749,7 +1183,6 @@
                 </div>
             </div>
 
-            <!-- Main Drive Quick Link Banner -->
             <div class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-5 rounded-xl shadow-md flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
                     <span class="bg-white/20 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full">Official Club Storage</span>
@@ -759,125 +1192,6 @@
                 <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="bg-white text-blue-700 hover:bg-blue-50 font-bold px-6 py-2.5 rounded-lg text-sm shadow-sm transition-all flex items-center gap-2 shrink-0">
                     <i class="fab fa-google-drive text-blue-600 text-base"></i> Open Google Drive Folder
                 </a>
-            </div>
-
-            <!-- Categorized Drive Folder Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Folder 1: Routine Music -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-blue-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Audio Files</span>
-                                <h3 class="font-bold text-slate-900 text-base mt-1"><i class="fas fa-music text-purple-600 mr-1.5"></i> Routine Music & Counts</h3>
-                            </div>
-                            <i class="fas fa-folder text-amber-400 text-2xl"></i>
-                        </div>
-                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                            Official MP3 audio tracks, slow-count rehearsal music, and speed-adjusted practice cuts for Solos, Duets, and Team routines.
-                        </p>
-                    </div>
-                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border border-slate-200 transition-colors flex items-center justify-center gap-1.5">
-                        <i class="fas fa-arrow-up-right-from-square"></i> Open Music Folder
-                    </a>
-                </div>
-
-                <!-- Folder 2: Forms & Registration -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-blue-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">Forms & PDF</span>
-                                <h3 class="font-bold text-slate-900 text-base mt-1"><i class="fas fa-file-pdf text-red-500 mr-1.5"></i> ASAJ Forms & Club Registration</h3>
-                            </div>
-                            <i class="fas fa-folder text-amber-400 text-2xl"></i>
-                        </div>
-                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                            Downloadable athlete registration forms, medical waivers, ASAJ athlete affiliation documents, and code-of-conduct agreements.
-                        </p>
-                    </div>
-                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border border-slate-200 transition-colors flex items-center justify-center gap-1.5">
-                        <i class="fas fa-arrow-up-right-from-square"></i> Open Forms Folder
-                    </a>
-                </div>
-
-                <!-- Folder 3: Coach Cards & Technical Rules -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-blue-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded">Technical Specs</span>
-                                <h3 class="font-bold text-slate-900 text-base mt-1"><i class="fas fa-clipboard-check text-cyan-600 mr-1.5"></i> WA Coach Cards & Sheets</h3>
-                            </div>
-                            <i class="fas fa-folder text-amber-400 text-2xl"></i>
-                        </div>
-                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                            Declared Difficulty (DD) cards, World Aquatics technical element sheets, figure evaluation rubrics, and judge scorecards.
-                        </p>
-                    </div>
-                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border border-slate-200 transition-colors flex items-center justify-center gap-1.5">
-                        <i class="fas fa-arrow-up-right-from-square"></i> Open Technical Cards
-                    </a>
-                </div>
-
-                <!-- Folder 4: Photos & Videos -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-blue-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2 py-0.5 rounded">Media Gallery</span>
-                                <h3 class="font-bold text-slate-900 text-base mt-1"><i class="fas fa-photo-film text-purple-500 mr-1.5"></i> Video & Photo Archives</h3>
-                            </div>
-                            <i class="fas fa-folder text-amber-400 text-2xl"></i>
-                        </div>
-                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                            Underground & surface video analysis footage, Jessica Intensive clips, Jacqueline Simoneau Camp highlights, and Dev Meet photos.
-                        </p>
-                    </div>
-                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border border-slate-200 transition-colors flex items-center justify-center gap-1.5">
-                        <i class="fas fa-arrow-up-right-from-square"></i> Open Media Archives
-                    </a>
-                </div>
-
-                <!-- Folder 5: National Team Trials Info -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-blue-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-0.5 rounded">National Team</span>
-                                <h3 class="font-bold text-slate-900 text-base mt-1"><i class="fas fa-star text-amber-500 mr-1.5"></i> Jamaica Trials Repository</h3>
-                            </div>
-                            <i class="fas fa-folder text-amber-400 text-2xl"></i>
-                        </div>
-                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                            Selection policy documents, mandatory trial schedules, passport copy upload portal, and national team trial candidate guidelines.
-                        </p>
-                    </div>
-                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border border-slate-200 transition-colors flex items-center justify-center gap-1.5">
-                        <i class="fas fa-arrow-up-right-from-square"></i> Open Trials Repository
-                    </a>
-                </div>
-
-                <!-- Folder 6: Coach & Admin Internal Hub -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-blue-400 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Coaches Only</span>
-                                <h3 class="font-bold text-slate-900 text-base mt-1"><i class="fas fa-lock text-slate-600 mr-1.5"></i> Internal Training Plans</h3>
-                            </div>
-                            <i class="fas fa-folder text-amber-400 text-2xl"></i>
-                        </div>
-                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                            Weekly coaching lesson plans, dryland strength conditioning logs, swimmer attendance registers, and technical progress audits.
-                        </p>
-                    </div>
-                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border border-slate-200 transition-colors flex items-center justify-center gap-1.5">
-                        <i class="fas fa-arrow-up-right-from-square"></i> Open Internal Folder
-                    </a>
-                </div>
-
             </div>
         </div>
 
@@ -956,29 +1270,11 @@
                         <button onclick="evaluateExecution()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-lg text-sm flex items-center gap-2">
                             <i class="fas fa-microscope"></i> Analyze Biomechanics
                         </button>
-                        <button onclick="generateCountAudio()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-5 py-2.5 rounded-lg text-sm flex items-center gap-2">
-                            <i class="fas fa-volume-high"></i> Play AI Practice Counts (TTS)
-                        </button>
-                        <button onclick="generatePostureDiagram()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-lg text-sm flex items-center gap-2">
-                            <i class="fas fa-image"></i> Generate Corrective Diagram
-                        </button>
                     </div>
                 </div>
 
-                <!-- Evaluator Output Container -->
                 <div id="eval-output-container" class="mt-6 hidden space-y-4">
                     <div id="eval-text-card" class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm hidden whitespace-pre-line"></div>
-                    <div id="eval-audio-card" class="bg-purple-50 p-4 rounded-xl border border-purple-200 hidden flex items-center gap-4">
-                        <i class="fas fa-music text-2xl text-purple-600"></i>
-                        <div>
-                            <div class="font-bold text-purple-900 text-sm">Practice Count Audio Track</div>
-                            <audio id="count-audio-player" controls class="mt-1 h-8"></audio>
-                        </div>
-                    </div>
-                    <div id="eval-image-card" class="bg-blue-50 p-4 rounded-xl border border-blue-200 hidden">
-                        <div class="font-bold text-blue-900 text-sm mb-2"><i class="fas fa-image"></i> AI Corrective Posture Rendering</div>
-                        <img id="eval-generated-image" class="w-full max-h-96 object-cover rounded-lg border border-blue-300" alt="Generated posture diagram">
-                    </div>
                 </div>
             </div>
         </div>
@@ -997,12 +1293,12 @@
                 <div class="space-y-4">
                     <div id="chat-history" class="h-80 overflow-y-auto bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
                         <div class="bg-teal-100 text-teal-900 p-3 rounded-lg text-sm max-w-xl">
-                            <strong>AI Assistant:</strong> Welcome to Tornadoes Artistic Swimming! Ask me anything about practice times, mandatory Wednesday/Saturday trial sessions, WA competition rules, ASAJ regulations, or gear checklists.
+                            <strong>AI Assistant:</strong> Welcome to Tornadoes Artistic Swimming! Ask me anything about practice times, mandatory Wednesday/Saturday trial sessions, WA competition rules, ASAJ regulations, athlete mindset, or gear checklists.
                         </div>
                     </div>
 
                     <div class="flex gap-2">
-                        <input type="text" id="parent-query" class="flex-grow bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm" placeholder="e.g., What are the World Aquatics penalties for touching the bottom of the pool?">
+                        <input type="text" id="parent-query" class="flex-grow bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm" placeholder="e.g., How can I help my daughter handle judge subjectivity during national trials?">
                         <button onclick="askParentAssistant()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-3 rounded-lg text-sm flex items-center gap-2">
                             <i class="fas fa-paper-plane"></i> Send
                         </button>
@@ -1013,7 +1309,274 @@
 
     </main>
 
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white border-t border-slate-800 py-6 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-amber-400 font-brand">TORNADOES ARTISTIC SWIMMING</span>
+                <span>• 2026–2027 Official Season Portal</span>
+            </div>
+            <div>
+                Perseverance, Teamwork & Excellence • #BETORNADOES
+            </div>
+        </div>
+    </footer>
+
     <script>
+        // OFFICIAL EVALUATION CATALOGUE DATA
+        const evalCatalogues = {
+            supernovices: {
+                title: "Digital Routine & Figure Catalogue — Supernovices 2026",
+                swimmers: ["Pilar Ruiz", "Thalia Jongwe", "Evangeline Ashman", "Semira"],
+                passing: "Passing Grade: Average ≥ 5.0 (Max 2 misses ≤ 4.5)",
+                figures: [
+                    { code: "F1", name: "Layout to Inv. Tuck (5s)", note: "Hold inverse tuck for 5 seconds." },
+                    { code: "F2", name: "Ballet Leg (101)", note: "Standard ballet leg single." },
+                    { code: "F3", name: "Back Pike Somersault (303)", note: "Smooth compact pike rotation." },
+                    { code: "F4", name: "Front Pike Somersault (320)", note: "Clean forward entry and exit." },
+                    { code: "F5", name: "Layout to Surface Arch BK", note: "Maintain buoyant arch line." },
+                    { code: "F6", name: "Dolphin Bent Knee", note: "Note: Execute with ONE knee bent (Bent Knee position). Underwater path & sculling remain identical." },
+                    { code: "F7", name: "Bent Knee Alternate (100)", note: "Alternate knees smoothly." },
+                    { code: "F8", name: "Layout to Tuck 180° Left", note: "Execute 180° turn to left." },
+                    { code: "F9", name: "Layout Travelling Feet (15m)", note: "Maintain horizontal alignment for 15 metres." },
+                    { code: "F10", name: "Eggbeater Travelling (25m)", note: "Move in different directions for at least 25 metres at exact same height." }
+                ],
+                routines: [
+                    { code: "R1", desc: "Walk on, Dive, 2x Kick Pulls to Eggbeater" },
+                    { code: "R2", desc: "Single Arm Eggbeater 10m (sides)" },
+                    { code: "R3", desc: "Head First Boost & Descent" },
+                    { code: "R4", desc: "Torpedo Scull 15m" },
+                    { code: "R5", desc: "4 x Freestyle head up + Back layout, Ballet Leg & Back tuck somersault" },
+                    { code: "R6", desc: "Sailboat Switching x4 (5m, 8 counts)" },
+                    { code: "R7", desc: "Travel Layout + Ballet Leg + Rapid Right Split" },
+                    { code: "R8", desc: "Travel Single Arm Eggbeater (3x8 counts rapid)" },
+                    { code: "R9", desc: "Layout + Pretzel 360° + Rapid Pretzel Somersault" },
+                    { code: "R10", desc: "Kick Pull Kick Over Metronome 25m (160bpm)" }
+                ],
+                land: ["L1: Splits on land (Right & Left)", "L2: Forward roll to stand up", "L3: Handstand away from wall", "L4: Bridge from stand up", "L5: Push up x5"]
+            },
+            novices: {
+                title: "Technical Evaluation Form & Catalogue — NOVICES 2026",
+                swimmers: ["Minna Bisnott", "Maliyah Burke", "Cairo Jackson", "Royanna Mitchell", "Isabel Harris", "Elise Wan", "Shiloh Reid"],
+                passing: "Passing Grade: Average ≥ 5.0 (Max 2 misses ≤ 4.5)",
+                figures: [
+                    { code: "F1", name: "Back Layout Position held for 15 sec (BP 1)", note: "Stationary horizontal line." },
+                    { code: "F2", name: "Straight Ballet Leg (Fig 106 DD 1.6)", note: "Support scull height, perpendicular extension." },
+                    { code: "F3", name: "Hanging Vertical (BP 6)", note: "Body alignment and extension." },
+                    { code: "F4", name: "Blossom (Fig 302 DD 1.4)", note: "Controlled leg extension to split line." },
+                    { code: "F5", name: "Sailboat held 10 sec each leg (BP 14)", note: "Hold 10 seconds per leg without dropping hips." },
+                    { code: "F6", name: "Front Layout (BP 2) followed by 5m Front Pike Scull", note: "Continuous flat surface sculling." },
+                    { code: "F7", name: "Barracuda (Fig 301 DD 1.9)", note: "Explosive thrust to ankle height." },
+                    { code: "F8", name: "Ballet Leg Position held 10 sec each leg (BP 3)", note: "Hold 10 seconds per leg." },
+                    { code: "F9", name: "Back Layout travelling to feet, followed by Torpedo Sculling 25m", note: "Continuous transition keeping body flat." },
+                    { code: "F10", name: "Front Walkover (Fig 369 DD 1.9)", note: "Fluid walkover rotation." }
+                ],
+                routines: [
+                    { code: "R1", desc: "Walk on with counts/posture, dive entry & headfirst boost" },
+                    { code: "R2", desc: "Double arm eggbeater for 6m (3m side leading, turn, 3m opposite side)" },
+                    { code: "R3", desc: "Headfirst boost and 'catch' in eggbeater" },
+                    { code: "R4", desc: "Fishtail (crane) held 5s max height into vertical, followed by pikeout & body boost" },
+                    { code: "R5", desc: "Side kick into front pike to front walkover and torpedo for 5m" },
+                    { code: "R6", desc: "Travelling sailboat switching both legs (counts of 4 for 25m)" },
+                    { code: "R7", desc: "Walk on, dive entry, 2 breaststrokes, back layout to tuck, flamingo switching legs (4c) & eggbeater" },
+                    { code: "R8", desc: "Start underwater, arms boost higher finishing underwater" },
+                    { code: "R9", desc: "Back layout to tuck, assume kip position then vertical submerged" },
+                    { code: "R10", desc: "Travelling head first assumes ballet leg return to back layout" }
+                ],
+                land: ["L1: Splits on land (Right & Left)", "L2: Forward roll to stand up", "L3: Handstand away from wall", "L4: Bridge from stand up", "L5: Push up x5"]
+            },
+            intermediate: {
+                title: "Technical Evaluation Form & Catalogue — INTERMEDIATE 2026",
+                swimmers: ["Mya Burke", "Naoma Grayson", "Talisha Higgins", "Alexandra Kelly", "Victoria Kelly", "Alexis Miller", "Avril Montgomery", "Zori Morgan"],
+                passing: "Passing Grade: Average ≥ 5.0 (Max 2 misses ≤ 4.5)",
+                figures: [
+                    { code: "F1", name: "Tower (Fig 125 - DD 1.9)", note: "Vertical height & alignment." },
+                    { code: "F2", name: "Kip Bent Knee (Fig 318 - DD 1.8)", note: "Compact tuck roll into vertical extension." },
+                    { code: "F3", name: "Barracuda (Fig 301 - DD 1.9)", note: "Thrust speed & height." },
+                    { code: "F4", name: "Straight Ballet Leg (Fig 106 - DD 1.6)", note: "90° perpendicular thigh." },
+                    { code: "F5", name: "Walkover Front (Fig 362 - DD 1.3)", note: "Continuous split cadence." },
+                    { code: "F6", name: "Walkover Back (Fig 420 - DD 1.9)", note: "Arch back layout entry." },
+                    { code: "F7", name: "Ballet Leg Position", note: "Stationary support scull." },
+                    { code: "F8", name: "Fishtail (Crane Position)", note: "Hold vertical 90° leg." },
+                    { code: "F9", name: "Table Top to Vertical (BM 10)", note: "Body level alignment." },
+                    { code: "F10", name: "Table Top to Vertical + 360° Spin", note: "Centered spin closing at ankles." }
+                ],
+                routines: [
+                    { code: "R1", desc: "Walk on + Dive + Max Head Boost -> Kick-pull x4 -> Fast Front Walkover -> Max Eggbeater" },
+                    { code: "R2", desc: "Double Arm Eggbeater 6m (3m side / turn / 3m opposite)" },
+                    { code: "R3", desc: "Head-first Boost + Stable Eggbeater 'catch'" },
+                    { code: "R4", desc: "Eggbeater -> Arm Boost -> Front Pike -> Crane -> Pike water break -> Eggbeater front" },
+                    { code: "R5", desc: "Side Kick -> Back Walkover -> Prone position -> Eggbeater facing judges" },
+                    { code: "R6", desc: "Travelling Ballet Leg sequence (switching legs, 4 counts, 15m total)" },
+                    { code: "R7", desc: "Walk on + Dive + 2 Breaststrokes -> Layout Tuck -> Flamingo leg switch -> Eggbeater" },
+                    { code: "R8", desc: "Underwater start -> Max Arms Boost -> Finish underwater" },
+                    { code: "R9", desc: "Back Layout -> Tuck -> Kip position -> Vertical submerged" },
+                    { code: "R10", desc: "Reverse Torpedo entry -> Arch Back -> Knight position (hold 5s) -> Good posture Eggbeater" }
+                ],
+                land: ["L1: Splits on land (Right & Left)", "L2: Forward roll to stand up", "L3: Handstand away from wall", "L4: Bridge from stand up", "L5: Push up x15"]
+            },
+            youth: {
+                title: "Technical Evaluation Form & Catalogue — YOUTH 2026",
+                swimmers: ["Sahara Cunningham", "Talisha Higgins", "Mya Burke", "Alexandra Kelly", "Alexis Miller", "Naoma Grayson"],
+                passing: "Passing Grade: Average ≥ 5.0 (Max 2 misses ≤ 4.5)",
+                figures: [
+                    { code: "F1", name: "Straight Ballet Leg (Fig 106 - DD 1.6)", note: "High support scull." },
+                    { code: "F2", name: "Barracuda (Fig 301 - DD 1.8)", note: "Maximum thrust speed." },
+                    { code: "F3", name: "Water Drop (Fig 363 - DD 1.8)", note: "Pike to vertical descent." },
+                    { code: "F4", name: "Swordfish (Fig 401 - DD 2.1)", note: "Bent knee walkout." },
+                    { code: "F5", name: "Kip (Fig 311 - DD 1.6)", note: "Unbent vertical extension." },
+                    { code: "F6", name: "Flying Fish Spinning 360 (Fig 307e - DD 2.9)", note: "Thrust speed into lean angle & 360 spin." },
+                    { code: "F7", name: "Barracuda Airborne Split Spin Up 180 (Fig 308 - DD 2.9)", note: "Explosive thrust into airborne split." },
+                    { code: "F8", name: "Venus (Fig 352 - DD 3.0)", note: "High difficulty rotation." },
+                    { code: "F9", name: "Walkover Back Closing 360 (Fig 421 - DD 2.4)", note: "Continuous rotation." },
+                    { code: "F10", name: "Vertical Position Spin 360 (BP)", note: "Centered spin speed." }
+                ],
+                routines: [
+                    { code: "R1", desc: "Walk on & Entry -> Start pose -> Short deck work -> Dive entry -> Double arm headfirst boost" },
+                    { code: "R2", desc: "Eggbeater: 3m travelling double arm -> Twirl -> 5m travelling single arm" },
+                    { code: "R3", desc: "Headfirst Boost: Double arm headfirst boost -> Resurface in eggbeater -> 3m double arm" },
+                    { code: "R4", desc: "Transitions: 5m torpedo scull -> Transition -> 3m single arm eggbeater with creative arm" },
+                    { code: "R5", desc: "Transitions: Back Layout -> Bent Knee -> Ballet Leg -> Flamingo -> Double Ballet Leg -> Back Layout" },
+                    { code: "R6", desc: "Thrusts: Hybrid combination" },
+                    { code: "R7", desc: "Spins: Hybrid combination" },
+                    { code: "R8", desc: "Rotations: Hybrid combination" },
+                    { code: "R9", desc: "Airborne Weight: Hybrid combination" }
+                ],
+                land: ["L1: Split position on land (R & L)", "L2: Forward roll to stand up -> jump", "L3: Handstand away from wall", "L4: Bridge from stand up fluid back drop", "L5: Push ups x20"]
+            },
+            juniors: {
+                title: "Technical Evaluation Form & Catalogue — JUNIORS 2026",
+                swimmers: ["Isabelle Dacres", "Janna Nesbeth", "Zori Morgan"],
+                passing: "International Target Average ≥ 7.0 (No single element ≤ 5.5)",
+                figures: [
+                    { code: "TE 1A", name: "Flying Fish Spinning 180° (DD 2.5)", note: "High speed thrust into lean angle." },
+                    { code: "TE 2A", name: "Vertical -> Full Twist to Bent Knee -> Full Twist to Vertical -> 180° Open Split -> Walkout (DD 2.6)", note: "Complex rotation sequence." },
+                    { code: "TE 3A", name: "Two Fouetté Rotations -> Continuous Spin 720° (DD 2.6)", note: "High rotational speed." },
+                    { code: "TE 4", name: "Butterfly Hybrid (DD 2.9)", note: "High acrobatic difficulty." },
+                    { code: "TE 5A", name: "Rocket Split Bent Knee Twirl Hybrid (DD 2.4)", note: "Explosive thrust split." },
+                    { code: "TE 2B", name: "Vertical -> Half Twist to Bent Knee -> Half Twist to Vertical -> Split -> Walkout (DD 2.3)", note: "Precision twist." },
+                    { code: "DE 1B", name: "Walkover Back Closing 180° -> Continuous Spin (DD 2.5)", note: "Continuous cadence." },
+                    { code: "DE 3", name: "Ballet Leg -> Flamingo Bent Knee Rollback -> Join to VP -> Half Twist -> 360° Open Split -> Walkout (DD 3.1)", note: "Peak technical element." },
+                    { code: "DE 4B", name: "Crane -> Knight -> Continuous Spin 720° (DD 2.7)", note: "Stable knight position." },
+                    { code: "SE 2B", name: "Combined Spin 720° -> Continuous Spin 1080° (DD 2.7)", note: "Rapid 1080 spin." }
+                ],
+                routines: [
+                    { code: "R1", desc: "Walk on + Start pose -> Solo deck work -> Dive entry -> Foot-first boost" },
+                    { code: "R2", desc: "Travelling double arm eggbeater for 8m (with creative arms)" },
+                    { code: "R3", desc: "2x Double arm headfirst boosts (one must contain a twirl)" },
+                    { code: "R4", desc: "Side flutter kick -> Rapid Front Pike -> Rapid double leg walkover -> Torpedo scull -> Double arm eggbeater" },
+                    { code: "R5", desc: "Back layout -> Straight leg ballet leg -> Flamingo -> Doubles -> Flamingo -> Ballet leg -> Back layout" },
+                    { code: "R6", desc: "Thrust hybrid combination" },
+                    { code: "R7", desc: "Spin hybrid combination" },
+                    { code: "R8", desc: "Rotations hybrid combination" },
+                    { code: "R9", desc: "Airborne Weight hybrid combination" },
+                    { code: "R10", desc: "Flexibility hybrid combination" }
+                ],
+                land: ["L1: Split position on land (R & L)", "L2: Forward roll to stand up -> jump", "L3: Handstand away from wall", "L4: Bridge from stand up fluid back drop", "L5: Push ups x25"]
+            }
+        };
+
+        function renderEvalCatalogueView(key) {
+            const data = evalCatalogues[key] || evalCatalogues.novices;
+            const container = document.getElementById('eval-catalogue-display-container');
+
+            let html = `
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
+                    
+                    <div class="border-b border-slate-100 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-1 rounded">2026 Evaluation Form</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1">${data.title}</h3>
+                            <div class="text-xs text-slate-500 mt-0.5">Evaluators: Jessica, Kelly, Adrian | Scale: 1.0 - 10.0</div>
+                        </div>
+                        <span class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-black px-3 py-1.5 rounded-full shadow-sm">
+                            ${data.passing}
+                        </span>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold uppercase text-slate-500 tracking-wider mb-2"><i class="fas fa-users text-teal-600"></i> Swimmers Evaluated in this Level:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${data.swimmers.map(s => `<span class="bg-slate-100 text-slate-800 text-xs font-semibold px-2.5 py-1 rounded-lg border border-slate-200"><i class="fas fa-user-check text-teal-500 mr-1 text-[10px]"></i> ${s}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        
+                        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-3 flex items-center justify-between border-b border-slate-200 pb-2">
+                                <span><i class="fas fa-swimmer text-teal-600 mr-1.5"></i> Figures Guide (F1 – F10)</span>
+                                <span class="text-[10px] bg-teal-100 text-teal-800 font-bold px-2 py-0.5 rounded">In-Water Technical</span>
+                            </h4>
+                            <div class="space-y-2 text-xs">
+                                ${data.figures.map(f => `
+                                    <div class="bg-white p-2.5 rounded-lg border border-slate-200 flex items-start gap-2">
+                                        <span class="font-mono font-bold text-teal-700 bg-teal-50 px-1.5 py-0.5 rounded text-[11px] shrink-0">${f.code}</span>
+                                        <div>
+                                            <div class="font-bold text-slate-900">${f.name}</div>
+                                            ${f.note ? `<div class="text-slate-500 text-[11px] mt-0.5">${f.note}</div>` : ''}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-3 flex items-center justify-between border-b border-slate-200 pb-2">
+                                <span><i class="fas fa-music text-purple-600 mr-1.5"></i> Routines Guide (R1 – R10)</span>
+                                <span class="text-[10px] bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded">Choreography & Sequences</span>
+                            </h4>
+                            <div class="space-y-2 text-xs">
+                                ${data.routines.map(r => `
+                                    <div class="bg-white p-2.5 rounded-lg border border-slate-200 flex items-start gap-2">
+                                        <span class="font-mono font-bold text-purple-700 bg-purple-50 px-1.5 py-0.5 rounded text-[11px] shrink-0">${r.code}</span>
+                                        <div class="text-slate-800 leading-relaxed">${r.desc}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-200/60">
+                        <h4 class="font-bold text-amber-950 text-sm mb-2 flex items-center gap-1.5">
+                            <i class="fas fa-child text-amber-600"></i> Dryland Assessment Guide (L1 – L5)
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+                            ${data.land.map(l => `<div class="bg-white p-2 rounded-lg border border-amber-200 text-slate-800 font-medium">${l}</div>`).join('')}
+                        </div>
+                    </div>
+
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function toggleInstallModal() {
+            const modal = document.getElementById('installModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function togglePathwayView(view) {
+            const athleteView = document.getElementById('pathway-athlete-view');
+            const parentView = document.getElementById('pathway-parent-view');
+            const btnAthlete = document.getElementById('btn-pathway-athlete');
+            const btnParent = document.getElementById('btn-pathway-parent');
+
+            if (view === 'athlete') {
+                athleteView.classList.remove('hidden');
+                parentView.classList.add('hidden');
+                btnAthlete.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all bg-amber-500 text-slate-900";
+                btnParent.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white";
+            } else {
+                parentView.classList.remove('hidden');
+                athleteView.classList.add('hidden');
+                btnParent.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all bg-amber-500 text-slate-900";
+                btnAthlete.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white";
+            }
+        }
+
         function switchTab(tabId) {
             document.querySelectorAll('.tab-section').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -1026,6 +1589,10 @@
             if (activeBtn) {
                 activeBtn.classList.remove('bg-slate-200', 'text-slate-700');
                 activeBtn.classList.add('active', 'bg-teal-600', 'text-white');
+            }
+
+            if (tabId === 'eval-sheets') {
+                renderEvalCatalogueView(document.getElementById('eval-squad-selector').value);
             }
         }
 
@@ -1105,82 +1672,6 @@
             }
         }
 
-        async function generateCountAudio() {
-            const container = document.getElementById('eval-output-container');
-            const audioCard = document.getElementById('eval-audio-card');
-            const audioPlayer = document.getElementById('count-audio-player');
-
-            container.classList.remove('hidden');
-            audioCard.classList.remove('hidden');
-
-            const promptText = "Say sharply with a synchronized rhythm: 1, 2, hold 3, 4, thrust on 5, spin 6, 7, 8!";
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: promptText }] }],
-                        generationConfig: {
-                            responseModalities: ["AUDIO"],
-                            speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Kore" } } }
-                        }
-                    })
-                });
-
-                const result = await response.json();
-                const part = result?.candidates?.[0]?.content?.parts?.[0];
-                const audioData = part?.inlineData?.data;
-                const mimeType = part?.inlineData?.mimeType;
-
-                if (audioData && mimeType) {
-                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)?.[1] || "24000", 10);
-                    const pcmData = base64ToArrayBuffer(audioData);
-                    const pcm16 = new Int16Array(pcmData);
-                    const wavBlob = pcmToWav(pcm16, sampleRate);
-                    audioPlayer.src = URL.createObjectURL(wavBlob);
-                    audioPlayer.play();
-                }
-            } catch (e) {
-                console.error("TTS Audio Error:", e);
-            }
-        }
-
-        async function generatePostureDiagram() {
-            const notes = document.getElementById('eval-notes').value || "Artistic swimming ballet leg single perpendicular extension high support scull";
-            const container = document.getElementById('eval-output-container');
-            const imageCard = document.getElementById('eval-image-card');
-            const imgEl = document.getElementById('eval-generated-image');
-
-            container.classList.remove('hidden');
-            imageCard.classList.remove('hidden');
-
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-image:generateContent?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: `A clear technical sports illustration showing perfect artistic swimming posture for: ${notes}` }] }],
-                        generationConfig: { responseModalities: ['TEXT', 'IMAGE'] }
-                    })
-                });
-
-                const result = await response.json();
-                const base64Data = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
-
-                if (base64Data) {
-                    imgEl.src = `data:image/png;base64,${base64Data}`;
-                }
-            } catch (err) {
-                console.error("Image Gen Error:", err);
-            }
-        }
-
         async function askParentAssistant() {
             const inputEl = document.getElementById('parent-query');
             const query = inputEl.value.trim();
@@ -1188,7 +1679,6 @@
 
             const chatHistory = document.getElementById('chat-history');
 
-            // User Message
             const userMsg = document.createElement('div');
             userMsg.className = 'bg-slate-200 text-slate-800 p-3 rounded-lg text-sm max-w-xl ml-auto';
             userMsg.innerText = query;
@@ -1196,17 +1686,16 @@
 
             inputEl.value = '';
 
-            // AI Loading Message
             const aiMsg = document.createElement('div');
             aiMsg.className = 'bg-teal-100 text-teal-900 p-3 rounded-lg text-sm max-w-xl';
-            aiMsg.innerText = 'Checking Tornadoes schedules, WA rules, and ASAJ guidelines...';
+            aiMsg.innerText = 'Checking Tornadoes schedules, trial mindset guidelines, WA rules, and ASAJ guidelines...';
             chatHistory.appendChild(aiMsg);
             chatHistory.scrollTop = chatHistory.scrollHeight;
 
             const apiKey = "";
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
 
-            const systemPrompt = "You are the Parent Support AI Assistant for Tornadoes Artistic Swimming Club 2026-2027. Answer questions based on the club's 6 squad categories (1. Supernovices to 6. Juniors), mandatory Wednesday/Saturday trial practice sessions, gear lists, Single Attempt evaluation standards, World Aquatics (WA) competition rules, 12 & Under Figures, 13-15 Youth Figures, Solo & Duet Technical Required Elements (TRE 1A-5B), and ASAJ Jamaican National Selection guidelines.";
+            const systemPrompt = "You are the Parent Support AI Assistant for Tornadoes Artistic Swimming Club 2026-2027. Answer questions based on the club's 6 squad categories, mandatory Wednesday/Saturday trial practice sessions, athlete mindset & personal responsibility, core values (Discipline, Respect, Consistency, Humility), subjective judging, Bill May's resilience story, Single Attempt standards, World Aquatics rules, evaluation form criteria (F1-F10, R1-R10, L1-L5, 12 General Conditions), 2026-2027 roadmap calendar (Oct 31, Nov 28, Feb Splashquatics, CARIFTA, Coral Springs), and ASAJ guidelines.";
 
             try {
                 const response = await fetch(apiUrl, {
@@ -1228,64 +1717,9 @@
             chatHistory.scrollTop = chatHistory.scrollHeight;
         }
 
-        function base64ToArrayBuffer(base64) {
-            const binaryString = window.atob(base64);
-            const len = binaryString.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-                bytes[i] = binaryString.charCodeAt(i);
-            }
-            return bytes.buffer;
-        }
-
-        function pcmToWav(pcm16, sampleRate) {
-            const numChannels = 1;
-            const bytesPerSample = 2;
-            const blockAlign = numChannels * bytesPerSample;
-            const byteRate = sampleRate * blockAlign;
-            const dataSize = pcm16.length * bytesPerSample;
-            const buffer = new ArrayBuffer(44 + dataSize);
-            const view = new DataView(buffer);
-
-            /* RIFF identifier */
-            writeString(view, 0, 'RIFF');
-            /* RIFF chunk length */
-            view.setUint32(4, 36 + dataSize, true);
-            /* RIFF type */
-            writeString(view, 8, 'WAVE');
-            /* format chunk identifier */
-            writeString(view, 12, 'fmt ');
-            /* format chunk length */
-            view.setUint32(16, 16, true);
-            /* sample format (raw PCM) */
-            view.setUint16(20, 1, true);
-            /* channel count */
-            view.setUint16(22, numChannels, true);
-            /* sample rate */
-            view.setUint32(24, sampleRate, true);
-            /* byte rate */
-            view.setUint32(28, byteRate, true);
-            /* block align */
-            view.setUint16(32, blockAlign, true);
-            /* bits per sample */
-            view.setUint16(34, 16, true);
-            /* data chunk identifier */
-            writeString(view, 36, 'data');
-            /* data chunk length */
-            view.setUint32(40, dataSize, true);
-
-            for (let i = 0; i < pcm16.length; i++) {
-                view.setInt16(44 + i * 2, pcm16[i], true);
-            }
-
-            return new Blob([buffer], { type: 'audio/wav' });
-        }
-
-        function writeString(view, offset, string) {
-            for (let i = 0; i < string.length; i++) {
-                view.setUint8(offset + i, string.charCodeAt(i));
-            }
-        }
+        window.addEventListener('DOMContentLoaded', () => {
+            renderEvalCatalogueView('novices');
+        });
     </script>
 </body>
 </html>
