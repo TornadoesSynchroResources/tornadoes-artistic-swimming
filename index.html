@@ -1,752 +1,853 @@
-<!-- MAIN HEADER -->
-<header class="bg-gradient-to-r from-slate-900 via-teal-900 to-slate-900 text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-full bg-teal-500/20 border-2 border-teal-400 flex items-center justify-center text-teal-300 text-2xl font-bold">
-                <i class="fas fa-tornado"></i>
-            </div>
-            <div>
-                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">TORNADOES ARTISTIC SWIMMING</h1>
-                <p class="text-xs sm:text-sm text-teal-300 font-medium">2026–2027 Official Squad Portal, WA Rules & ASAJ Hub</p>
-            </div>
-        </div>
-        <div class="flex items-center gap-3 bg-slate-800/80 px-4 py-2 rounded-xl border border-teal-500/30">
-            <div class="text-right">
-                <div class="text-xs font-semibold text-slate-300">TOTAL SQUAD</div>
-                <div class="text-xl font-black text-teal-400">24 Swimmers</div>
-            </div>
-            <div class="h-8 w-px bg-slate-700"></div>
-            <div class="text-xs text-amber-400 font-bold uppercase tracking-wider">
-                #BETORNADOES
-            </div>
-        </div>
-    </div>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tornadoes Artistic Swimming Roster & AI Portal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-btn.active { background-color: #0d9488; color: white; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen">
 
-<!-- MAIN CONTAINER -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
-    <!-- NAVIGATION TABS -->
-    <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-3">
-        <button onclick="switchTab('roster')" id="tab-roster" class="tab-btn active px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-teal-600 text-white shadow-sm flex items-center gap-2">
-            <i class="fas fa-users"></i> Squad Roster & Schedule
-        </button>
-        <button onclick="switchTab('gear')" id="tab-gear" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-toolbox"></i> Required Gear List
-        </button>
-        <button onclick="switchTab('eval-sheets')" id="tab-eval-sheets" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-clipboard-list text-purple-600"></i> Technical Evaluation Forms
-        </button>
-        <button onclick="switchTab('national-pathway')" id="tab-national-pathway" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-route text-amber-500"></i> National Team Pathway
-        </button>
-        <button onclick="switchTab('categories-guide')" id="tab-categories-guide" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-layer-group text-indigo-500"></i> Categories & Pathway Guide
-        </button>
-        <button onclick="switchTab('roadmap')" id="tab-roadmap" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-calendar-alt text-teal-600"></i> 2026-2027 Roadmap & Phases
-        </button>
-        <button onclick="switchTab('wa-rules')" id="tab-wa-rules" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-book-open text-cyan-600"></i> World Aquatics Rules
-        </button>
-        <button onclick="switchTab('drive-hub')" id="tab-drive-hub" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fab fa-google-drive text-blue-500"></i> Resource Hub & Drive
-        </button>
-        <button onclick="switchTab('ai-drill')" id="tab-ai-drill" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-wand-magic-sparkles text-amber-500"></i> AI Routine Generator
-        </button>
-        <button onclick="switchTab('ai-eval')" id="tab-ai-eval" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-chart-line text-emerald-600"></i> AI Evaluator & Voice
-        </button>
-        <button onclick="switchTab('ai-assistant')" id="tab-ai-assistant" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
-            <i class="fas fa-robot text-teal-600"></i> Parent AI Assistant
-        </button>
-    </div>
-
-    <!-- TAB 1: SQUAD ROSTER & SCHEDULE -->
-    <div id="section-roster" class="tab-section space-y-6">
-        <div class="bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-xl p-5 shadow-md flex flex-col md:flex-row justify-between items-center gap-4">
-            <div>
-                <span class="bg-white/20 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full">Mandatory Requirement</span>
-                <h2 class="text-xl font-bold mt-1"><i class="fas fa-star text-yellow-300"></i> National Team Trial Preparation</h2>
-                <p class="text-xs text-orange-100 mt-0.5">Required attendance for all swimmers actively preparing for Jamaican National Team Selection.</p>
-            </div>
-            <div class="flex gap-3">
-                <div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg text-center border border-white/20">
-                    <div class="text-xs uppercase font-semibold text-orange-100">Wednesday</div>
-                    <div class="text-sm font-black">4:00 – 6:30 PM</div>
+    <header class="bg-gradient-to-r from-slate-900 via-teal-900 to-slate-900 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full bg-teal-500/20 border-2 border-teal-400 flex items-center justify-center text-teal-300 text-2xl font-bold">
+                    <i class="fas fa-tornado"></i>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg text-center border border-white/20">
-                    <div class="text-xs uppercase font-semibold text-orange-100">Saturday</div>
-                    <div class="text-sm font-black">2:00 – 5:00 PM</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Supernovices -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-orange-400 transition-all">
-                <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-0.5 rounded">Category 1</span>
-                        <h3 class="font-bold text-slate-900 text-lg">Supernovices <span class="text-xs text-slate-500">(3 Swimmers)</span></h3>
-                    </div>
-                    <span class="text-xs font-bold bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full">4–6 HRS/WK</span>
-                </div>
-                <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Pilar Ruiz</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Thalia Jongwe</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Evangeline Ashman</li>
-                </ul>
-            </div>
-            <!-- Novices -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-400 transition-all">
-                <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-0.5 rounded">Category 2</span>
-                        <h3 class="font-bold text-slate-900 text-lg">Novices <span class="text-xs text-slate-500">(5 Swimmers)</span></h3>
-                    </div>
-                    <span class="text-xs font-bold bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full">4–6 HRS/WK</span>
-                </div>
-                <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Isabel Harris</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Sophia Goetz</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Isabelle Guthrie</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Asha Anzinger</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Leigh-Ann Gordon</li>
-                </ul>
-            </div>
-            <!-- Intermediate -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-orange-400 transition-all">
-                <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-0.5 rounded">Category 3</span>
-                        <h3 class="font-bold text-slate-900 text-lg">Intermediate <span class="text-xs text-slate-500">(5 Swimmers)</span></h3>
-                    </div>
-                    <span class="text-xs font-bold bg-orange-50 text-orange-700 px-2.5 py-1 rounded-full">6–8 HRS/WK</span>
-                </div>
-                <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Shiloh Reid</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Minna Bisnott</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Cairo Jackson</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Royanna Mitchell</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Maliyah Burke</li>
-                </ul>
-            </div>
-            <!-- 12 & Under -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-400 transition-all">
-                <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-0.5 rounded">Category 4</span>
-                        <h3 class="font-bold text-slate-900 text-lg">12 & Under <span class="text-xs text-slate-500">(3 Swimmers)</span></h3>
-                    </div>
-                    <span class="text-xs font-bold bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full">6–8 HRS/WK</span>
-                </div>
-                <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Avril-Renee Montgomery</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Elise Wan</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Victoria Kelly</li>
-                </ul>
-            </div>
-            <!-- 13-15 Youth -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-orange-400 transition-all">
-                <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-0.5 rounded">Category 5</span>
-                        <h3 class="font-bold text-slate-900 text-lg">13–15 Youth <span class="text-xs text-slate-500">(5 Swimmers)</span></h3>
-                    </div>
-                    <span class="text-xs font-bold bg-orange-50 text-orange-700 px-2.5 py-1 rounded-full">6–8 HRS/WK</span>
-                </div>
-                <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Talisha Higgins</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Mya Burke</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Alexandra Kelly</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Alexis Miller</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Naoma Grayson</li>
-                </ul>
-            </div>
-            <!-- Juniors -->
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-slate-800 transition-all">
-                <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-900 bg-slate-100 px-2 py-0.5 rounded">Category 6</span>
-                        <h3 class="font-bold text-slate-900 text-lg">Juniors <span class="text-xs text-slate-500">(3 Swimmers)</span></h3>
-                    </div>
-                    <span class="text-xs font-bold bg-slate-900 text-white px-2.5 py-1 rounded-full">8–12 HRS/WK</span>
-                </div>
-                <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Isabelle Dacres</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Janna Nesbeth</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Zori Morgan</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 2: REQUIRED GEAR LIST -->
-    <div id="section-gear" class="tab-section hidden space-y-6">
-        <div class="bg-gradient-to-r from-slate-900 to-teal-900 text-white rounded-xl p-5 shadow-lg">
-            <h2 class="text-xl font-bold">Mandatory Athlete Gear & Equipment Matrix</h2>
-            <p class="text-xs text-slate-300">Category-specific checklist with direct Amazon purchase links for pool sessions, land conditioning, and national trials.</p>
-        </div>
-
-        <!-- Amazon Gear Table -->
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-            <div class="p-4 bg-slate-50 border-b border-slate-200">
-                <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wide">Approved Equipment & Amazon Purchase Links</h3>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-100 text-slate-700 uppercase text-xs font-bold">
-                        <tr>
-                            <th class="p-3">Item</th>
-                            <th class="p-3">Requirement</th>
-                            <th class="p-3 text-center">Amazon Link</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200 text-slate-700">
-                        <tr>
-                            <td class="p-3 font-bold text-slate-900">Yoga Mat</td>
-                            <td class="p-3 text-xs">Required for dryland flexibility and core work.</td>
-                            <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=yoga+mat" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-slate-900">Swim Cap</td>
-                            <td class="p-3 text-xs">Plain white, unbranded cap alongside regular cap for figure evaluation.</td>
-                            <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=plain+white+swim+cap" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-slate-900">Goggles</td>
-                            <td class="p-3 text-xs">Required for all water practice sessions.</td>
-                            <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=swimming+goggles" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-slate-900">Nose Clips</td>
-                            <td class="p-3 text-xs">Required silicone nose clips (minimum 2-3 spares).</td>
-                            <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=synchronized+swimming+nose+clips" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-slate-900">Stretch Elastic Bands</td>
-                            <td class="p-3 text-xs">Required for dryland flexibility and resistance drills.</td>
-                            <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=resistance+stretch+bands+for+stretching" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-slate-900">Point Bands</td>
-                            <td class="p-3 text-xs">Required for specialized foot/arch pointing work.</td>
-                            <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=ballet+foot+stretcher+point+bands" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-slate-900">Ankle Weights</td>
-                            <td class="p-3 text-xs">Category specific: 1 lb for smaller athletes, 2 lb for taller athletes.</td>
-                            <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=ankle+weights+1lb+2lb" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-bold text-slate-900">Crocs / Clogs</td>
-                            <td class="p-3 text-xs">Easy pool footwear for running and moving between training areas.</td>
-                            <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=crocs+clogs+unisex" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Clothing & Attire Standards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm space-y-2">
-                <h3 class="font-bold text-slate-900 text-base"><i class="fas fa-person-walking text-teal-600"></i> Dryland Flexibility Clothing</h3>
-                <p class="text-xs text-slate-700 leading-relaxed">
-                    Athletes regularly complete flexibility and technical work on land. They must wear clothing that allows full and unrestricted movement.<br>
-                    • <strong>Required:</strong> Stretch shorts / elastic athletic shorts, leggings, or other flexible athletic clothing.<br>
-                    • <strong>Not permitted:</strong> Jeans or other rigid/restrictive fabrics that do not allow proper flexibility work.
-                </p>
-            </div>
-            <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm space-y-2">
-                <h3 class="font-bold text-slate-900 text-base"><i class="fas fa-shirt text-teal-600"></i> Standardized Figure Attire</h3>
-                <p class="text-xs text-slate-700 leading-relaxed">
-                    • <strong>Black swimsuit:</strong> Completely plain, with no brands, logos, names, letters, or other visible markings.<br>
-                    • <strong>White swim cap:</strong> Completely plain, with no brands, logos, names, letters, or other visible markings.<br>
-                    • <strong>Goggles and nose clip.</strong><br>
-                    <em>This standard maintains a clean, uniform and professional presentation during evaluation and competition.</em>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 3: TECHNICAL EVALUATION FORMS & VIDEOS -->
-    <div id="section-eval-sheets" class="tab-section hidden space-y-6">
-        <div class="bg-slate-900 text-white rounded-xl p-6 shadow-xl border border-slate-700 space-y-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-700 pb-4">
                 <div>
-                    <div class="text-teal-400 text-xs font-black uppercase tracking-wider">Tornadoes Official Staff Form</div>
-                    <h2 id="eval-title-heading" class="text-xl font-bold text-white mt-1">TORNADOES ARTISTIC SWIMMING — Technical Evaluation Form (SUPERNOVICES Level 2)</h2>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">TORNADOES ARTISTIC SWIMMING</h1>
+                    <p class="text-xs sm:text-sm text-teal-300 font-medium">2026–2027 Official Squad Portal, WA Rules & ASAJ Hub</p>
                 </div>
-                <div class="flex items-center gap-3">
-                    <label class="text-xs font-bold text-slate-300">Select Squad:</label>
-                    <select id="eval-squad-selector" onchange="changeEvaluationCategory(this.value)" class="bg-slate-800 text-teal-300 border border-teal-500/50 rounded-lg px-3 py-1.5 text-xs font-bold outline-none cursor-pointer">
-                        <option value="supernovices">Supernovices (Level 2)</option>
-                        <option value="novices">Novices</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="12under">12 & Under</option>
-                        <option value="youth15">13–15 Youth</option>
-                        <option value="juniors">Juniors</option>
-                    </select>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-800/80 px-4 py-2 rounded-xl border border-teal-500/30">
+                <div class="text-right">
+                    <div class="text-xs font-semibold text-slate-300">TOTAL SQUAD</div>
+                    <div class="text-xl font-black text-teal-400">24 Swimmers</div>
+                </div>
+                <div class="h-8 w-px bg-slate-700"></div>
+                <div class="text-xs text-amber-400 font-bold uppercase tracking-wider">
+                    #BETORNADOES
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-3">
+            <button onclick="switchTab('roster')" id="tab-roster" class="tab-btn active px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-teal-600 text-white shadow-sm flex items-center gap-2">
+                <i class="fas fa-users"></i> Squad Roster & Schedule
+            </button>
+            <button onclick="switchTab('gear')" id="tab-gear" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-toolbox"></i> Required Gear List
+            </button>
+            <button onclick="switchTab('eval-sheets')" id="tab-eval-sheets" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-clipboard-list text-purple-600"></i> Technical Evaluation Forms
+            </button>
+            <button onclick="switchTab('national-pathway')" id="tab-national-pathway" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-route text-amber-500"></i> National Team Pathway
+            </button>
+            <button onclick="switchTab('roadmap')" id="tab-roadmap" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-calendar-alt text-teal-600"></i> 2026-2027 Roadmap & Phases
+            </button>
+            <button onclick="switchTab('wa-rules')" id="tab-wa-rules" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-book-open text-cyan-600"></i> World Aquatics Rules
+            </button>
+            <button onclick="switchTab('categories-guide')" id="tab-categories-guide" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-layer-group text-indigo-500"></i> Categories & Pathway Guide
+            </button>
+            <button onclick="switchTab('drive-hub')" id="tab-drive-hub" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fab fa-google-drive text-blue-500"></i> Resource Hub & Drive
+            </button>
+            <button onclick="switchTab('ai-drill')" id="tab-ai-drill" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-wand-magic-sparkles text-amber-500"></i> AI Routine Generator
+            </button>
+            <button onclick="switchTab('ai-eval')" id="tab-ai-eval" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-chart-line text-emerald-600"></i> AI Evaluator & Voice
+            </button>
+            <button onclick="switchTab('ai-assistant')" id="tab-ai-assistant" class="tab-btn px-3.5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 flex items-center gap-2">
+                <i class="fas fa-robot text-teal-600"></i> Parent AI Assistant
+            </button>
+        </div>
+
+        <div id="section-roster" class="tab-section space-y-6">
+            <div class="bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-xl p-5 shadow-md flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <span class="bg-white/20 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full">Mandatory Requirement</span>
+                    <h2 class="text-xl font-bold mt-1"><i class="fas fa-star text-yellow-300"></i> National Team Trial Preparation</h2>
+                    <p class="text-xs text-orange-100 mt-0.5">Required attendance for all swimmers actively preparing for Jamaican National Team Selection.</p>
+                </div>
+                <div class="flex gap-3">
+                    <div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg text-center border border-white/20">
+                        <div class="text-xs uppercase font-semibold text-orange-100">Wednesday</div>
+                        <div class="text-sm font-black">4:00 – 6:30 PM</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg text-center border border-white/20">
+                        <div class="text-xs uppercase font-semibold text-orange-100">Saturday</div>
+                        <div class="text-sm font-black">2:00 – 5:00 PM</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="text-xs text-slate-300 bg-slate-800/80 p-3 rounded-lg border border-slate-700 flex justify-between flex-wrap gap-2">
-                <div><strong>Scale:</strong> 1.0 - 10.0</div>
-                <div><strong>Passing Standard:</strong> Average ≥ 5.0 (Max 2 misses ≤ 4.5)</div>
+            <!-- WEEKLY TRAINING SCHEDULE MATRIX -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-4 bg-slate-50 border-b border-slate-200">
+                    <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wide"><i class="fas fa-clock text-teal-600 mr-2"></i> Official Weekly Training Schedule & Hours Matrix</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm">
+                        <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-xs">
+                            <tr>
+                                <th class="p-3">Category</th>
+                                <th class="p-3">Tuesday</th>
+                                <th class="p-3">Wednesday</th>
+                                <th class="p-3">Thursday</th>
+                                <th class="p-3">Friday</th>
+                                <th class="p-3">Saturday</th>
+                                <th class="p-3 text-center">Min-Max Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Supernovices</td>
+                                <td class="p-3">Stadium <br><span class="text-[11px] text-slate-500">3:30 - 5:30 PM</span></td>
+                                <td class="p-3 text-slate-400">—</td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">3:30 - 5:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI Pool <br><span class="text-[11px] text-slate-500">8:00 - 10:30 AM</span></td>
+                                <td class="p-3 text-center font-bold text-teal-600">4–6 hrs</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Novices</td>
+                                <td class="p-3">Stadium <br><span class="text-[11px] text-slate-500">3:30 - 5:30 PM</span></td>
+                                <td class="p-3 text-slate-400">—</td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">3:30 - 5:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI Pool <br><span class="text-[11px] text-slate-500">8:00 - 10:30 AM</span></td>
+                                <td class="p-3 text-center font-bold text-teal-600">4–6 hrs</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Intermediate</td>
+                                <td class="p-3">Stadium <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3 text-slate-400">—</td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">2:00 - 5:00 PM</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">6–8 hrs</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">12 & Under</td>
+                                <td class="p-3">Stadium <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3 text-slate-400">—</td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">2:00 - 5:00 PM</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">6–8 hrs</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Youth (13–15)</td>
+                                <td class="p-3">Stadium <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3 text-slate-400">—</td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">2:00 - 5:00 PM</span></td>
+                                <td class="p-3 text-center font-bold text-orange-600">6–8 hrs</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Juniors</td>
+                                <td class="p-3">Stadium <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3 text-slate-400">—</td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">4:00 - 6:30 PM</span></td>
+                                <td class="p-3">UWI <br><span class="text-[11px] text-slate-500">2:00 - 5:00 PM</span></td>
+                                <td class="p-3 text-center font-bold text-slate-900">8–12 hrs</td>
+                            </tr>
+                            <tr class="bg-amber-50/60 font-semibold">
+                                <td class="p-3 text-amber-900">National Team Trial Athletes</td>
+                                <td class="p-3 text-amber-900">Category Schedule</td>
+                                <td class="p-3 text-amber-900 bg-amber-100 font-bold">MANDATORY NT PREP <br><span class="text-[11px]">4:00 - 6:30 PM</span></td>
+                                <td class="p-3 text-amber-900">Category Schedule</td>
+                                <td class="p-3 text-amber-900">Category Schedule</td>
+                                <td class="p-3 text-amber-900 bg-amber-100 font-bold">MANDATORY NT PREP <br><span class="text-[11px]">2:00 - 5:00 PM</span></td>
+                                <td class="p-3 text-center text-amber-900 font-bold">8–12 hrs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-4 border-t border-slate-800">
-                <!-- FIGURE GUIDE (F1 - F10) -->
-                <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 space-y-3">
-                    <h3 class="font-bold text-teal-400 text-sm border-b border-slate-700 pb-2"><i class="fas fa-swimmer"></i> FIGURE GUIDE (F1 - F10)</h3>
-                    <div class="space-y-3 text-xs text-slate-300">
-                        <div><strong>F1:</strong> Layout to Inv. Tuck (5s) — <a href="https://youtu.be/7sOJWGz5PxI" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F2:</strong> Ballet Leg (101) — <a href="https://youtu.be/zht0xulr7Zc" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F3:</strong> Back Pike somersault (303) — <a href="https://youtu.be/WU1aTokBs1I" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F4:</strong> Front Pike somersault (320) — <a href="https://youtu.be/VM2bQMZZw0o" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F5:</strong> Layout to Surface Arch BK — <a href="https://youtu.be/KOL3wY4Gxhg" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F6:</strong> Dolphin Bent Knee <span class="text-[10px] text-amber-300 block">Note: Execute with one knee bent.</span> — <a href="https://youtu.be/HKTnKAni_Fk" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F7:</strong> Bent Knee Alternate (100) — <a href="https://youtu.be/d0G1U2MzkkM" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F8:</strong> Layout to Tuck 180° Left <span class="text-[10px] text-amber-300 block">Note: Execute 180° turn to the left.</span> — <a href="https://youtu.be/gMBMxveOX14" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F9:</strong> Layout Travelling feet (15m) — <a href="https://youtu.be/0Jm7qmarWzA" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>F10:</strong> Eggbeater travelling (25m) <span class="text-[10px] text-amber-300 block">Maintain exact same height & level.</span> — <a href="https://youtu.be/awW0pkIOgHw" target="_blank" class="text-teal-300 underline font-bold">WATCH VIDEO</a></div>
+            <!-- Squad Categories Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Supernovices -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-orange-400 transition-all">
+                    <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-0.5 rounded">Category 1</span>
+                            <h3 class="font-bold text-slate-900 text-lg">Supernovices <span class="text-xs text-slate-500">(3 Swimmers)</span></h3>
+                        </div>
+                        <span class="text-xs font-bold bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full">4–6 HRS/WK</span>
+                    </div>
+                    <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Pilar Ruiz</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Thalia Jongwe</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Evangeline Ashman</li>
+                    </ul>
+                </div>
+                <!-- Novices -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-400 transition-all">
+                    <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-0.5 rounded">Category 2</span>
+                            <h3 class="font-bold text-slate-900 text-lg">Novices <span class="text-xs text-slate-500">(5 Swimmers)</span></h3>
+                        </div>
+                        <span class="text-xs font-bold bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full">4–6 HRS/WK</span>
+                    </div>
+                    <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Isabel Harris</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Sophia Goetz</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Isabelle Guthrie</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Asha Anzinger</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Leigh-Ann Gordon</li>
+                    </ul>
+                </div>
+                <!-- Intermediate -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-orange-400 transition-all">
+                    <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-0.5 rounded">Category 3</span>
+                            <h3 class="font-bold text-slate-900 text-lg">Intermediate <span class="text-xs text-slate-500">(5 Swimmers)</span></h3>
+                        </div>
+                        <span class="text-xs font-bold bg-orange-50 text-orange-700 px-2.5 py-1 rounded-full">6–8 HRS/WK</span>
+                    </div>
+                    <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Shiloh Reid</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Minna Bisnott</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Cairo Jackson</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Royanna Mitchell</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Maliyah Burke</li>
+                    </ul>
+                </div>
+                <!-- 12 & Under -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-teal-400 transition-all">
+                    <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-0.5 rounded">Category 4</span>
+                            <h3 class="font-bold text-slate-900 text-lg">12 & Under <span class="text-xs text-slate-500">(3 Swimmers)</span></h3>
+                        </div>
+                        <span class="text-xs font-bold bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full">6–8 HRS/WK</span>
+                    </div>
+                    <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Avril-Renee Montgomery</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Elise Wan</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Victoria Kelly</li>
+                    </ul>
+                </div>
+                <!-- 13-15 Youth -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-orange-400 transition-all">
+                    <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-0.5 rounded">Category 5</span>
+                            <h3 class="font-bold text-slate-900 text-lg">13–15 Youth <span class="text-xs text-slate-500">(5 Swimmers)</span></h3>
+                        </div>
+                        <span class="text-xs font-bold bg-orange-50 text-orange-700 px-2.5 py-1 rounded-full">6–8 HRS/WK</span>
+                    </div>
+                    <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Talisha Higgins</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Mya Burke</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Alexandra Kelly</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Alexis Miller</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Naoma Grayson</li>
+                    </ul>
+                </div>
+                <!-- Juniors -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-slate-800 transition-all">
+                    <div class="flex justify-between items-start mb-3 border-b border-slate-100 pb-2">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-900 bg-slate-100 px-2 py-0.5 rounded">Category 6</span>
+                            <h3 class="font-bold text-slate-900 text-lg">Juniors <span class="text-xs text-slate-500">(3 Swimmers)</span></h3>
+                        </div>
+                        <span class="text-xs font-bold bg-slate-900 text-white px-2.5 py-1 rounded-full">8–12 HRS/WK</span>
+                    </div>
+                    <ul class="space-y-1.5 text-sm text-slate-700 mb-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Isabelle Dacres</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Janna Nesbeth</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-check text-teal-500 text-xs"></i> Zori Morgan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-gear" class="tab-section hidden space-y-6">
+            <div class="bg-gradient-to-r from-slate-900 to-teal-900 text-white rounded-xl p-5 shadow-lg">
+                <h2 class="text-xl font-bold">Mandatory Athlete Gear & Equipment Matrix</h2>
+                <p class="text-xs text-slate-300">Category-specific checklist with direct Amazon links for pool sessions, land conditioning, and national trials.</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-4 bg-slate-50 border-b border-slate-200">
+                    <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wide">Approved Equipment & Amazon Purchase Links</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-100 text-slate-700 uppercase text-xs font-bold">
+                            <tr>
+                                <th class="p-3">Item</th>
+                                <th class="p-3">Requirement</th>
+                                <th class="p-3 text-center">Amazon Link</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Yoga Mat</td>
+                                <td class="p-3 text-xs">Required for dryland flexibility and core work.</td>
+                                <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=yoga+mat" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Swim Cap</td>
+                                <td class="p-3 text-xs">Plain white, unbranded cap alongside regular cap for figure evaluation.</td>
+                                <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=plain+white+swim+cap" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Goggles</td>
+                                <td class="p-3 text-xs">Required for all water practice sessions.</td>
+                                <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=swimming+goggles" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Nose Clips</td>
+                                <td class="p-3 text-xs">Required silicone nose clips (minimum 2-3 spares).</td>
+                                <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=synchronized+swimming+nose+clips" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Stretch Elastic Bands</td>
+                                <td class="p-3 text-xs">Required for dryland flexibility and resistance drills.</td>
+                                <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=resistance+stretch+bands+for+stretching" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Point Bands</td>
+                                <td class="p-3 text-xs">Required for specialized foot/arch pointing work.</td>
+                                <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=ballet+foot+stretcher+point+bands" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Ankle Weights</td>
+                                <td class="p-3 text-xs">Category specific: 1 lb for smaller athletes, 2 lb for taller athletes.</td>
+                                <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=ankle+weights+1lb+2lb" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-slate-900">Crocs / Clogs</td>
+                                <td class="p-3 text-xs">Easy pool footwear for running and moving between training areas.</td>
+                                <td class="p-3 text-center"><a href="https://www.amazon.com/s?k=crocs+clogs+unisex" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5"><i class="fab fa-amazon"></i> Buy on Amazon</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-eval-sheets" class="tab-section hidden space-y-6">
+            <div class="bg-slate-900 text-white rounded-xl p-6 shadow-xl border border-slate-700 space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-700 pb-4">
+                    <div>
+                        <div class="text-teal-400 text-xs font-black uppercase tracking-wider">Tornadoes Official Staff Form</div>
+                        <h2 id="eval-title-heading" class="text-xl font-bold text-white mt-1">TORNADOES ARTISTIC SWIMMING — Technical Evaluation Form (SUPERNOVICES)</h2>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label class="text-xs font-bold text-slate-300">Select Squad:</label>
+                        <select id="eval-squad-selector" onchange="changeEvaluationCategory(this.value)" class="bg-slate-800 text-teal-300 border border-teal-500/50 rounded-lg px-3 py-1.5 text-xs font-bold outline-none cursor-pointer">
+                            <option value="supernovices" selected>Supernovices</option>
+                            <option value="novices">Novices</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="youth15">13–15 Youth</option>
+                            <option value="juniors">Juniors</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- ROUTINE GUIDE (R1 - R10) -->
-                <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 space-y-3">
-                    <h3 class="font-bold text-purple-400 text-sm border-b border-slate-700 pb-2"><i class="fas fa-music"></i> ROUTINE GUIDE (R1 - R10)</h3>
-                    <div class="space-y-3 text-xs text-slate-300">
-                        <div><strong>R1:</strong> Walk on, Dive, 2x Kick Pulls to Eggbeater <span class="text-[10px] text-slate-400 block">(Done from memory)</span></div>
-                        <div><strong>R2:</strong> Single Arm Eggbeater 10m — <a href="https://youtu.be/FmBNGuzv-qM" target="_blank" class="text-purple-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>R3:</strong> Head First Boost & Descent — <a href="https://youtu.be/TgnAv5xSzYY" target="_blank" class="text-purple-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>R4:</strong> Torpedo Scull 15m — <a href="https://youtu.be/f70FFtxqY4E" target="_blank" class="text-purple-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>R5:</strong> 4x Freestyle Head Up + Back Layout, Ballet Leg & Back Tuck <span class="text-[10px] text-amber-300 block">Sequence</span> — <a href="https://youtu.be/k9VvP1hINMw" target="_blank" class="text-purple-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>R6:</strong> Sailboat Switching x4 (5m, 8 counts) — <a href="https://youtu.be/q3WhlDTSItE" target="_blank" class="text-purple-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>R7:</strong> Travel Layout + Ballet Leg + Rapid Right Split — <a href="https://youtu.be/mVAU5H0nr08" target="_blank" class="text-purple-300 underline font-bold">VIDEO 1</a> / <a href="https://youtu.be/YlJB47hlYQc" target="_blank" class="text-purple-300 underline font-bold">VIDEO 2</a></div>
-                        <div><strong>R8:</strong> Travel Single Arm Eggbeater (3x8 counts) — <a href="https://youtu.be/-kz7KnlNAkc" target="_blank" class="text-purple-300 underline font-bold">WATCH VIDEO</a></div>
-                        <div><strong>R9:</strong> Layout + Pretzel 360° + Rapid Pretzel Somersault <span class="text-[10px] text-slate-400 block">(Done from memory)</span></div>
-                        <div><strong>R10:</strong> Kick Pull Kick Over Metronome 25m (160bpm) — <a href="https://youtu.be/bOsDrAyX-Rw" target="_blank" class="text-purple-300 underline font-bold">WATCH VIDEO</a></div>
-                    </div>
+                <div class="text-xs text-slate-300 bg-slate-800/80 p-3 rounded-lg border border-slate-700 flex justify-between flex-wrap gap-2">
+                    <div><strong>Scale:</strong> 1.0 - 10.0</div>
+                    <div><strong>Passing Standard:</strong> Average ≥ 5.0 (Max 2 misses ≤ 4.5)</div>
                 </div>
 
-                <!-- LAND GUIDE & GENERAL CONDITIONS -->
+                <div id="eval-content-container" class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-4 border-t border-slate-800">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </div>
+
+        <div id="section-national-pathway" class="tab-section hidden space-y-6">
+            <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-slate-900 text-white rounded-xl p-5 shadow-lg">
+                <h2 class="text-xl font-bold"><i class="fas fa-route"></i> National Team Pathway, Values & Real-World Resilience</h2>
+                <p class="text-xs text-amber-100">Commitment, ASAJ 3-Tier Qualification Framework, Degree of Difficulty standards, and inspiring stories.</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-3">
+                <h3 class="font-bold text-slate-900 text-lg text-amber-700">1. Your Journey is Individual (Personal Responsibility)</h3>
+                <p class="text-xs text-slate-700 leading-relaxed">Representing Jamaica is one of the highest honors. No one can train for you: leg height, flexibility, technical precision, lung capacity, and mental toughness depend 100% on your individual effort.</p>
+            </div>
+        </div>
+
+        <div id="section-roadmap" class="tab-section hidden space-y-6">
+            <div class="bg-gradient-to-r from-slate-900 via-teal-900 to-slate-900 text-white rounded-xl p-5 shadow-lg">
+                <h2 class="text-xl font-bold"><i class="fas fa-calendar-alt"></i> Season Training Plan & Competitive Roadmap 2026-2027</h2>
+                <p class="text-xs text-teal-300">Individual technical development, training phases, attendance policies, and competition milestones.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-4">
+                <h3 class="font-bold text-slate-900 text-lg text-teal-800">Strict Attendance & Punctuality Policy</h3>
+                <p class="text-xs text-slate-700 leading-relaxed">
+                    Weekdays: a 30-minute estimated arrival window is provided. Training begins at the stated start time.<br>
+                    Saturdays: only a 15-minute late-arrival allowance is permitted. For UWI Pool Novice/Supernovice (8:15 AM latest) and afternoon sessions (2:15 PM latest).<br>
+                    <strong class="text-red-600">NO ENTRY WILL BE ACCEPTED AFTER THE APPLICABLE LATE-ARRIVAL LIMIT.</strong>
+                </p>
+            </div>
+        </div>
+
+        <div id="section-wa-rules" class="tab-section hidden space-y-6">
+            <div class="bg-gradient-to-r from-cyan-900 via-blue-900 to-slate-900 text-white rounded-xl p-5 shadow-lg">
+                <h2 class="text-xl font-bold"><i class="fas fa-book-open"></i> World Aquatics (WA) Official Competition Code & Rules</h2>
+                <p class="text-xs text-cyan-200">International scoring system, Coach Card declarations, Base Marks, and judging panels.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                    <div class="text-teal-600 font-bold text-sm"><i class="fas fa-cubes"></i> 1. Elements Panel (TRE)</div>
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        Evaluates the Technical Required Elements. Judges grade execution and synchronization. Any severe under-rotation (over 90°) or missed hybrid component triggers a <strong>Base Mark</strong> penalty, drastically reducing the difficulty multiplier.
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                    <div class="text-purple-600 font-bold text-sm"><i class="fas fa-palette"></i> 2. Artistic Impression Panel</div>
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        Assesses <em>Choreography & Musicality</em> (use of music, timing, expression) and <em>Presentation</em> (manner of presentation, carriage, and uniformity across solo, duet, or team configurations).
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                    <div class="text-amber-600 font-bold text-sm"><i class="fas fa-file-contract"></i> 3. Coach Cards & Difficulty</div>
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        Before competition, coaches submit official Coach Cards detailing every hybrid and transition with calculated Degree of Difficulty (DD). Technical Controllers verify live execution against declared cards.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-4">
+                <h3 class="font-bold text-slate-900 text-base"><i class="fas fa-shield-alt text-cyan-700"></i> Key World Aquatics Judging Principles</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+                    <div class="bg-slate-50 p-4 rounded-xl border">
+                        <strong class="text-slate-900 block mb-1">Zero Tolerance for Height & Stability</strong>
+                        <p>Under WA rules, height above the water surface (dry hips/legs in vertical positions) and stability during eggbeater propulsion directly dictate execution scores. Drifts or wobbles incur clear deductions.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border">
+                        <strong class="text-slate-900 block mb-1">Synchronization Variance</strong>
+                        <p>In duet and team events, judges monitor simultaneous execution down to the fraction of a second. Timing differences among teammates result in immediate panel score deductions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-categories-guide" class="tab-section hidden space-y-6">
+            <div class="bg-gradient-to-r from-indigo-900 via-slate-900 to-teal-900 text-white rounded-xl p-5 shadow-lg">
+                <h2 class="text-xl font-bold"><i class="fas fa-layer-group"></i> Artistic Swimming Categories & Pathway Guide</h2>
+                <p class="text-xs text-indigo-200">Comprehensive breakdown of Supernovices, Novice, Intermediate, and World Aquatics elite international divisions.</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-4">
+                <span class="text-xs font-bold bg-orange-50 text-orange-700 px-2.5 py-1 rounded">Foundation Category</span>
+                <h3 class="font-bold text-slate-900 text-lg text-orange-600">Supernovices (Súper Novato) — The Foundation Year</h3>
+                <p class="text-xs text-slate-700 leading-relaxed">
+                    Supernovice (Súper Novato) es el nivel competitivo inicial y más básico dentro de la natación artística. Esta categoría está diseñada específicamente para atletas que se están introduciendo al deporte:<br><br>
+                    • <strong>El Propósito:</strong> Permite a los nadadores principiantes experimentar sus primeras competencias sin la presión de un nivel técnico alto.<br>
+                    • <strong>Edades:</strong> Se subdivide en rangos de edad (8&Under, 12&Under, 13&Over).<br>
+                    • <strong>Requisitos Técnicos:</strong> Figuras cortas y sencillas (posición Tub de 360 grados, voltereta agrupada hacia atrás Somersault Back Tuck).<br>
+                    • <strong>Limitaciones:</strong> Si un atleta demuestra habilidades avanzadas (impulsarse con fuerza hasta la cintura o giros complejos), los reglamentos exigen subir a Novice o Intermediate.
+                </p>
+                <div class="bg-teal-50 border border-teal-200 p-4 rounded-lg text-xs space-y-2 text-teal-900">
+                    <div class="font-bold uppercase tracking-wide">Foundation First. Progression Follows.</div>
+                    <p>A strong first year creates the foundation for everything that comes after. During this stage, athletes develop basic alignment, body positions, pointed feet, sculling, water confidence, flexibility, strength and fundamental movement patterns.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-drive-hub" class="tab-section hidden space-y-6">
+            <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-xl p-5 shadow-lg">
+                <h2 class="text-xl font-bold">Tornadoes Cloud Document Repository & Google Drive</h2>
+                <p class="text-xs text-blue-200">Centralized storage for routine music, registration forms, WA Coach Cards, and video archives.</p>
+            </div>
+        </div>
+
+        <div id="section-ai-drill" class="tab-section hidden space-y-6">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">AI Custom Drill & Routine Generator</h2>
+                <p class="text-xs text-slate-500 mb-4">Generates targeted land conditioning and pool drill plans tailored to Tornadoes squad levels using Gemini.</p>
+            </div>
+        </div>
+
+        <div id="section-ai-eval" class="tab-section hidden space-y-6">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">AI Coach Evaluator & Count Voice Synthesizer</h2>
+                <p class="text-xs text-slate-500 mb-4">Analyze judge notes and generate rhythm counts using AI audio.</p>
+            </div>
+        </div>
+
+        <div id="section-ai-assistant" class="tab-section hidden space-y-6">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Tornadoes Parent & Athlete AI Assistant</h2>
+                <p class="text-xs text-slate-500 mb-4">Ask any question about practice schedules, gear, rules, or national trials.</p>
+                <div id="chat-history" class="h-64 overflow-y-auto bg-slate-50 p-4 rounded-xl border mb-3 space-y-2 text-sm">
+                    <div class="bg-teal-100 text-teal-900 p-2.5 rounded-lg max-w-xl"><strong>AI Assistant:</strong> Welcome! Ask me anything about Tornadoes squad schedules, Supernovices foundation year ("Foundation First. Progression Follows"), WA rules, or gear requirements.</div>
+                </div>
+                <div class="flex gap-2">
+                    <input type="text" id="parent-query" class="flex-grow bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm" placeholder="Ask a question about Supernovices foundation or trial schedules...">
+                    <button onclick="askParentAssistant()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-3 rounded-lg text-sm">Send</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const evalData = {
+            supernovices: {
+                title: "TORNADOES ARTISTIC SWIMMING — Technical Evaluation Form (SUPERNOVICES)",
+                figures: [
+                    "F1: Layout to Inv. Tuck (5s) — <a href='https://youtu.be/7sOJWGz5PxI' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F2: Ballet Leg (101) — <a href='https://youtu.be/zht0xulr7Zc' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F3: Back Pike somersault (303) — <a href='https://youtu.be/WU1aTokBs1I' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F4: Front Pike somersault (320) — <a href='https://youtu.be/VM2bQMZZw0o' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F5: Layout to Surface Arch BK — <a href='https://youtu.be/KOL3wY4Gxhg' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F6: Dolphin Bent Knee <span class='text-[10px] text-amber-300 block'>Note: Execute with one knee bent.</span> — <a href='https://youtu.be/HKTnKAni_Fk' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F7: Bent Knee Alternate (100) — <a href='https://youtu.be/d0G1U2MzkkM' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F8: Layout to Tuck 180° Left <span class='text-[10px] text-amber-300 block'>Note: Execute 180° turn to the left.</span> — <a href='https://youtu.be/gMBMxveOX14' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F9: Layout Travelling feet (15m) — <a href='https://youtu.be/0Jm7qmarWzA' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F10: Eggbeater travelling (25m) — <a href='https://youtu.be/awW0pkIOgHw' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                routines: [
+                    "R1: Walk on, Dive, 2x Kick Pulls to Eggbeater <span class='text-[10px] text-slate-400 block'>(Done from memory)</span>",
+                    "R2: Single Arm Eggbeater 10m — <a href='https://youtu.be/FmBNGuzv-qM' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R3: Head First Boost & Descent — <a href='https://youtu.be/TgnAv5xSzYY' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R4: Torpedo Scull 15m — <a href='https://youtu.be/f70FFtxqY4E' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R5: 4x Freestyle Head Up + Back Layout, Ballet Leg & Back Tuck <span class='text-[10px] text-amber-300 block'>Sequence</span> — <a href='https://youtu.be/k9VvP1hINMw' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R6: Sailboat Switching x4 (5m, 8 counts) — <a href='https://youtu.be/q3WhlDTSItE' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R7: Travel Layout + Ballet Leg + Rapid Right Split — <a href='https://youtu.be/mVAU5H0nr08' target='_blank' class='text-purple-300 underline font-bold'>VIDEO 1</a> / <a href='https://youtu.be/YlJB47hlYQc' target='_blank' class='text-purple-300 underline font-bold'>VIDEO 2</a>",
+                    "R8: Travel Single Arm Eggbeater (3x8 counts) — <a href='https://youtu.be/-kz7KnlNAkc' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R9: Layout + Pretzel 360° + Rapid Pretzel Somersault <span class='text-[10px] text-slate-400 block'>(Done from memory)</span>",
+                    "R10: Kick Pull Kick Over Metronome 25m (160bpm) — <a href='https://youtu.be/bOsDrAyX-Rw' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                land: [
+                    "L1: Splits on land (Right & Left) <span class='text-[10px] text-slate-400'>(Memory)</span>",
+                    "L2: Forward roll to stand up <span class='text-[10px] text-slate-400'>(Memory)</span>",
+                    "L3: Handstand away from wall <span class='text-[10px] text-slate-400'>(Memory)</span>",
+                    "L4: Bridge from stand up <span class='text-[10px] text-slate-400'>(Memory)</span>",
+                    "L5: Push up x5 <span class='text-[10px] text-slate-400'>(Memory)</span>"
+                ],
+                conditions: [
+                    "Black suit and white hat to wear.",
+                    "All items must be attempted and scored.",
+                    "Result determined by average score on 10 elements.",
+                    "All items must meet minimum requirements for 5.0 bronze.",
+                    "More than 2 elements < 4.5 is an automatic fail.",
+                    "Movements performed relatively stationary.",
+                    "Single attempt per element mimicking competition.",
+                    "Tight-fitting shorts or leggings on land.",
+                    "Coaches highlight proficiency gaps in comments.",
+                    "No replays offered unless coach requests.",
+                    "Judged per World Aquatics judging guide.",
+                    "Concerns communicated to coach in charge."
+                ]
+            },
+            novices: {
+                title: "TORNADOES ARTISTIC SWIMMING — Technical Evaluation Form (NOVICES)",
+                figures: [
+                    "F1: Back Layout Position held for 15 sec (BP 1) — <a href='https://youtu.be/5Zi5I5ddtEE?si=nllcNQsz0hB03QW4' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F2: Straight Ballet Leg (Fig 106 DD 1.6) — <a href='https://youtu.be/OhZ9lo6xoqA?si=Ps42VdFTn11CM52v' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F3: Hanging vertical (BP 6) — <a href='https://youtu.be/XYsghME7FSA?si=yvkAc6pGdSeXlFF6' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F4: Blossom (Fig 302 DD 1.4) — <a href='https://youtu.be/HxGgAPUgizk?si=Yh1DaX9QV8dhse3j' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F5: Sailboat held 10 sec each leg (BP 14) — <a href='https://youtu.be/xM52EyQJIdw?si=CQ8g6tY7wev4NHVX' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a> <span class='text-[10px] text-amber-300 block'>Note: Hold sailboat position 10s on one leg, then switch to the other.</span>",
+                    "F6: Front layout (BP 2) followed by a 5m front pike scull — <a href='https://youtu.be/6EfZAV5RvbM?si=2fdqDmetPWsYv10l' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F7: Barracuda (Fig 301 DD 1.9) — <a href='https://youtu.be/49H5hRhLhiA?si=62nv9jh5bJ49abNT' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F8: Ballet Leg Position, Held for 10 sec each leg (BP 3) — <a href='https://youtu.be/zht0xulr7Zc?si=JcE2Wz4UFOWMimQi' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F9: Back Layout travelling to the feets, followed by torpedo sculling 25m — <a href='https://youtu.be/0Jm7qmarWzA?si=5C9mz1-VaSllb3s_' target='_blank' class='text-teal-300 underline font-bold'>VIDEO 1</a> / <a href='https://youtu.be/T9teftDY67c?si=hn5YIKOGw9bT_bIc' target='_blank' class='text-teal-300 underline font-bold'>VIDEO 2</a>",
+                    "F10: Front Walkover (Fig 369 DD 1.9) — <a href='https://youtu.be/UNxlvOJxUtI?si=vONPz3EeP2N1OfEz' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                routines: [
+                    "R1: Walk on with counts and good posture and assume a start pose. From pose step to edge dive entry and head first boost — <a href='https://youtu.be/oL3cpSqc1zg?si=gOHoNY8qDYYGW8rn' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R2: Double arm eggbeater for 6 metres, 3 metres with one side leading, turn and continue for 3 metres opposite side leading — <a href='https://youtu.be/GP-JiqTj7WQ?si=CtSmByANUvO0l1h1' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R3: Head first boost and ‘catch’ in eggbeater — <a href='https://youtu.be/MwXzXK5tLU0?si=NNANUuhzjda_c5Tb' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R4: Fishtail (crane) held for 5 second max height into vertical, followed by CRASH and body boost from under the water — <a href='https://youtu.be/vqWD6MnQqYc?si=cfLGfdgCxJjrNxip' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R5: Side kick into front pike to front walkover and torpedo for 5 metres — <a href='https://youtu.be/O97iKYS0HtU?si=zHnoVnA24Rg64IUX' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R6: Travelling sailboat switching both legs, with counts of 4 for 25 meters — <a href='https://youtu.be/q3WhlDTSItE?si=JomQ1Sxl6nYKtRB5' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R7: Walk on with good posture, dive entry, two breaststrokes to the surface and back layout to assume tuck position, flamingo position switching legs in 4 counts and eggbeater — <a href='https://youtu.be/KkQexsDFRfQ?si=SW7ZzhD0iQbSsNA8' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R8: Start from under the water, arms boost higher finishing under water — <a href='https://youtu.be/AOQn9Mu0cGk?si=JZ7N1ndpWpH1Nvoy' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R9: Back layout to tuck position, assume kip position then vertical position submerged — <a href='https://youtu.be/OLrFtNve1vw?si=0QYjawzYmk04Trld' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R10: Travelling head first assumes a ballet leg return to back layout, assume the opposite ballet leg and return to back layout — <a href='https://youtu.be/JdfNGxCfDwU?si=LAnJtR4aYjA0Qc0G' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                land: [
+                    "L1: Splits on land (Right & Left)",
+                    "L2: Forward roll to stand up",
+                    "L3: Handstand away from wall",
+                    "L4: Bridge from stand up",
+                    "L5: Push up x5"
+                ],
+                conditions: [
+                    "Black suit and white hat to wear.",
+                    "All items must be attempted and scored.",
+                    "The result will be determined by the average score on the 10 elements.",
+                    "All items must meet the minimum requirements to achieve the 5.0 bronze rating.",
+                    "If more than 2 elements have a score less than 4.5, it will be an automatic fail.",
+                    "Unless otherwise noted, movements should be performed relatively stationary and in a uniform motion.",
+                    "The assessments will mimic a competition and all swimmers will only be able to attempt each element once.",
+                    "For skills on dry land, swimmers should wear tight-fitting shorts or leggings.",
+                    "Coaches are asked to highlight any areas in which the swimmers are not yet proficient in the comments box.",
+                    "No replays will be offered unless requested by the coach in charge.",
+                    "All figures will be judged following the current World Aquatics judging guide.",
+                    "Any concerns about how an evaluation has been carried out should be communicated to the coach in charge."
+                ]
+            },
+            intermediate: {
+                title: "TORNADOES ARTISTIC SWIMMING — Technical Evaluation Form (INTERMEDIATE)",
+                figures: [
+                    "F1: Tower (Fig 125 - DD 1.9) — <a href='https://youtu.be/9WqJJi3txdE?si=7mfrSE-MgHHvsJJf' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F2: Kip Bent Knee (Fig 318 - DD 1.8) — <a href='https://youtu.be/cHkoMCYZ4IY?si=Oz8PlRZJjy8ZcTij' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F3: Barracuda (Fig. 301 - DD 1.9) — <a href='https://youtu.be/49H5hRhLhiA?si=LVD-yn-XtLqP4s2y' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F4: Straight Ballet Leg (Fig. 106 - DD 1.6) — <a href='https://youtu.be/OhZ9lo6xoqA?si=ypIKV6lPb7ytg6hx' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F5: Walkover Front (Fig. 362 - DD 1.3) — <a href='https://youtu.be/UNxlvOJxUtI?si=Fgphh18HN0el76lC' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F6: Walkover Back (Fig. 420 - DD 1.9) — <a href='https://youtu.be/ro4eQjdCPD0?si=yEGM3h7SCpkayDcj' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F7: Ballet Leg Position — <a href='https://youtu.be/zht0xulr7Zc?si=owqisqAxXAycnM9K' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F8: Fishtail (Crane Position) — <a href='https://youtu.be/XxChgxFSA1o?si=Kz5-IFCr8TvMwlRV' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F9: Table Top to Vertical (BM 10) — <a href='https://youtu.be/LE-bGc4O7Zc?si=Bq0rC6BLmJ6X-e2l' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F10: Table Top to Vertical + 360° Spin — <a href='https://youtu.be/OnHH-ZEst1I?si=GR7NBCjFjva6JzRD' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                routines: [
+                    "R1: Walk on + Dive + Max Head Boost → Kick-pull x4 (8c) → Fast Front Walkover → Max Eggbeater — <a href='https://youtu.be/oL3cpSqc1zg?si=AMRnmhlatPGv8xN-' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R2: Double Arm Eggbeater 6m (3m side / turn / 3m opposite) — <a href='https://youtu.be/GP-JiqTj7WQ?si=mhGReRzxM63idkPN' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R3: Head-first Boost + Stable Eggbeater 'catch' — <a href='https://youtu.be/MwXzXK5tLU0?si=4E_NF0OF8ocB0Px1' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R4: Eggbeater → Arm Boost (1/2 arms) → Front Pike → Crane → Pike water break → Eggbeater front <span class='text-[10px] text-amber-300 block'>[No video provided: The athlete is expected to know what to do. Instructions will be repeated up to 3 times: 1st time to indicate, 2nd time for reflection, 3rd time to execute.]</span>",
+                    "R5: Side Kick → Back Walkover → Prone position → Eggbeater facing judges <span class='text-[10px] text-amber-300 block'>[No video provided: The athlete is expected to know what to do. Instructions will be repeated up to 3 times: 1st time to indicate, 2nd time for reflection, 3rd time to execute.]</span>",
+                    "R6: Travelling Ballet Leg sequence (switching legs, 4 counts, 15m total) <span class='text-[10px] text-amber-300 block'>[No video provided: The athlete is expected to know what to do. Instructions will be repeated up to 3 times: 1st time to indicate, 2nd time for reflection, 3rd time to execute.]</span>",
+                    "R7: Walk on + Dive + 2 Breaststrokes → Layout Tuck → Flamingo leg switch (4c) → Eggbeater <span class='text-[10px] text-amber-300 block'>[No video provided: The athlete is expected to know what to do. Instructions will be repeated up to 3 times: 1st time to indicate, 2nd time for reflection, 3rd time to execute.]</span>",
+                    "R8: Underwater start → Max Arms Boost → Finish underwater <span class='text-[10px] text-amber-300 block'>[No video provided: The athlete is expected to know what to do. Instructions will be repeated up to 3 times: 1st time to indicate, 2nd time for reflection, 3rd time to execute.]</span>",
+                    "R9: Back Layout → Tuck → Kip position → Vertical submerged <span class='text-[10px] text-amber-300 block'>[No video provided: The athlete is expected to know what to do. Instructions will be repeated up to 3 times: 1st time to indicate, 2nd time for reflection, 3rd time to execute.]</span>",
+                    "R10: Reverse Torpedo entry → Arch Back → Knight position (hold 5s) → Good posture Eggbeater <span class='text-[10px] text-amber-300 block'>[No video provided: The athlete is expected to know what to do. Instructions will be repeated up to 3 times: 1st time to indicate, 2nd time for reflection, 3rd time to execute.]</span>"
+                ],
+                land: [
+                    "L1: Split position on land (Right & Left leg tested)",
+                    "L2: From stand Up followed by a forward roll to jump, followed by a controlled stand up.",
+                    "L3: Handstand away from wall (extension & balance)",
+                    "L4: Bridge from stand up fluid back drop",
+                    "L5: Push ups x15 (perfect rhythmic plank)"
+                ],
+                conditions: [
+                    "Black suit and white hat to wear.",
+                    "All items must be attempted and scored.",
+                    "The result will be determined by the average score on the 10 elements.",
+                    "All items must meet the minimum requirements to achieve the 5.0 bronze rating.",
+                    "If more than 2 elements have a score less than 4.5, it will be an automatic fail.",
+                    "Unless otherwise noted, movements should be performed relatively stationary and in a uniform motion.",
+                    "The assessments will mimic a competition and all swimmers will only be able to attempt each element once.",
+                    "For skills on dry land, swimmers should wear tight-fitting shorts or leggings.",
+                    "Coaches are asked to highlight any areas in which the swimmers are not yet proficient in the comments box.",
+                    "No replays will be offered unless requested by the coach in charge.",
+                    "All figures will be judged following the current World Aquatics judging guide.",
+                    "Any concerns about how an evaluation has been carried out should be communicated to the coach in charge."
+                ]
+            },
+            youth15: {
+                title: "TORNADOES ARTISTIC SWIMMING — Technical Evaluation Form (13–15 YOUTH)",
+                figures: [
+                    "F1: Straight Ballet Leg (Fig 106 - DD 1.6) — <a href='https://youtu.be/OhZ9lo6xoqA?si=ypIKV6lPb7ytg6hx' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F2: Barracuda (Fig 301 - DD 1.8) — <a href='https://youtu.be/49H5hRhLhiA?si=LVD-yn-XtLqP4s2y' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F3: Water Drop (Fig 363 - DD 1.8) — <a href='https://youtu.be/KcEA5WHM7Ek?si=f2gTEXNsiEyadpss' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F4: Swordfish (Fig 401 - DD 2.1) — <a href='https://youtu.be/BhFVLo1U-fI?si=cRVvGMVazl9WOgMU' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F5: Kip (Fig 311 - DD 1.6) — <a href='https://youtu.be/OnHH-ZEst1I?si=GR7NBCjFjva6JzRD' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F6: Flying Fish Spinning 360 (Fig 307e - DD 2.9) — <a href='https://youtu.be/P4VHXWMLkbU?si=oOyaxLeFHK89Y-cH' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F7: Barracuda Airborne Split Spin Up 180 (Fig 308 - DD 2.9) — <a href='https://youtu.be/CWmYMXlid7A?si=vabuiXULxXqevYBz' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F8: Venus (Fig 352 - DD 3.0) — <a href='https://youtu.be/WbssjN77oOE?si=PgVQiqDYjEfvdTYg' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F9: Walkover Back Closing 360 (Figuras 421 - DD 2.4) — <a href='https://youtu.be/iQ0OGQgDmTI?si=ReLdOkqV7vq8JAbT' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "F10: Vertical Position Spin 360 (BP) — <a href='https://youtu.be/OnHH-ZEst1I?si=GR7NBCjFjva6JzRD' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                routines: [
+                    "R1: WALK ON AND ENTRY: Walk on (counts/presentation) → Start pose → Short deck work → Dive entry → Double arm headfirst boost — <a href='https://youtu.be/DvnEJlyR8Qg?si=UTxGLIsagAjWg8Jr' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R2: EGGBEATER: 3m travelling double arm eggbeater → Twirl → 5m travelling single arm (opposite direction) — <a href='https://youtu.be/qGeedd-Pjtc?si=HNWcxK4RqykGAdgl' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R3: HEADFIRST BOOST: Double arm headfirst boost → Resurface in eggbeater → 3m sideways travelling double arm eggbeater — <a href='https://youtu.be/qscfonnuQm8?si=A8ChvUVbplBhLV_-' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R4: TRANSITIONS (SCULLING & PROPULSION): 5m torpedo scull → Transition → 3m single arm eggbeater with creative arm — <a href='https://youtu.be/8rcwqKx9_A0?si=HmG1OrYDPj3wbSbA' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R5: TRANSITIONS (PROPULSION & BALLET LEGS): Back Layout → Bent Knee → Ballet Leg → Flamingo → Double Ballet Leg → Flamingo → Ballet Leg → Bent Knee → Back Layout — <a href='https://youtu.be/NnkShWpL0Vg?si=3PxUtKN9urzTI-m6' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R6: THRUSTS: Hybrid combination — <a href='https://youtu.be/hEgcnteLo1k?si=JZltlIXgRrCoEcit' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R7: SPINS: Hybrid combination — <a href='https://youtu.be/mFUOWiPJJrc?si=uwWY3YvN-gbQa9-M' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R8: ROTATIONS: Hybrid combination — <a href='https://youtu.be/nAYLVbHSmXc?si=l8jOgTSbOz3ogRD7' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R9: AIRBORNE WEIGHT: Hybrid combination — <a href='https://youtu.be/y07lgLoPqzs?si=b0DKw0WWXU-Lsktc' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                land: [
+                    "L1: Split position on land (Right & Left leg tested)",
+                    "L2: From stand Up followed by a forward roll to jump, followed by a controlled stand up",
+                    "L3: Handstand away from wall (extension & balance)",
+                    "L4: Bridge from stand up fluid back drop",
+                    "L5: Push ups x20 (perfect rhythmic plank)"
+                ],
+                conditions: [
+                    "Black suit and white hat to wear.",
+                    "All items must be attempted and scored.",
+                    "The result will be determined by the average score on the 10 elements.",
+                    "All items must meet the minimum requirements to achieve the 5.0 bronze rating.",
+                    "If more than 2 elements have a score less than 4.5, it will be an automatic fail.",
+                    "Unless otherwise noted, movements should be performed relatively stationary and in a uniform motion.",
+                    "The assessments will mimic a competition and all swimmers will only be able to attempt each element once.",
+                    "For skills on dry land, swimmers should wear tight-fitting shorts or leggings.",
+                    "Coaches are asked to highlight any areas in which the swimmers are not yet proficient in the comments box.",
+                    "No replays will be offered unless requested by the coach in charge.",
+                    "All figures will be judged following the current World Aquatics judging guide.",
+                    "Any concerns about how an evaluation has been carried out should be communicated to the coach in charge."
+                ]
+            },
+            juniors: {
+                title: "TORNADOES ARTISTIC SWIMMING — Technical Evaluation Form (JUNIORS)",
+                figures: [
+                    "TE 1A: Flying Fish Spinning 180° (DD 2.5) — <a href='https://youtu.be/cFAdbUkorFw?si=63L-UDELgI_O8EVB' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "TE 2A: Vertical → Full Twist to Bent Knee → Full Twist to Vertical → 180° Open Split → Walkout (DD 2.6) — <a href='https://youtu.be/oVuipt2OXxs?si=2RAA73R9BBFA6w8B' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "TE 3A: Two Fouetté Rotations → Continuous Spin 720° (DD 2.6) — <a href='https://youtu.be/QKHlRBSdiiE?si=8jWcgxdq0iwzuMDN' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "TE 4: Butterfly Hybrid (DD 2.9) — <a href='https://youtu.be/35Bu04Ijj_0?si=RIT0RF9f4HZM4FSU' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "TE 5A: Rocket Split Bent Knee Twirl Hybrid (DD 2.4) — <a href='https://youtu.be/wZ-_K6bXpdE?si=v6c5J7t2U6Pz_N3U' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "TE 2B: Vertical – Half Twist to Bent Knee – Half Twist to Vertical – Split – Walkout / DD - 2.3 — <a href='https://drive.google.com/file/d/1lIkJD37uYPIvbRXKffDnpcBL3GWHnejR/view?usp=sharing' target='_blank' class='text-teal-300 underline font-bold'>DRIVE LINK</a>",
+                    "DE 1B: Walkover Back Closing 180° → Continuous Spin (DD 2.5) — <a href='https://drive.google.com/file/d/1lIkJD37uYPIvbRXKffDnpcBL3GWHnejR/view?usp=sharing' target='_blank' class='text-teal-300 underline font-bold'>DRIVE LINK</a>",
+                    "DE 3: Ballet Leg → Flamingo Bent Knee Rollback → Join to Vertical → Half Twist → 360° Open Split → Walkout (DD 3.1) — <a href='https://youtu.be/Wkbs_jza-x4?si=bhyFVd-c9r9TPjY_' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "DE 4B: Crane→ Knight → Continuous Spin 720° (DD 2.7) — <a href='https://youtu.be/0AodvkHYCfc?si=c2dt3KxyJ7fjItkt' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>",
+                    "SE 2B: Combined Spin 720° → Continuous Spin 1080° (DD 2.7) — <a href='https://youtu.be/Zii-D8ImbmE?si=ropHW-4a_qEe5Jqy' target='_blank' class='text-teal-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                routines: [
+                    "R1: Walk on + Start pose → Solo deck work → Dive entry → Immediate foot-first boost — <a href='https://youtu.be/wC_owD6vQZc?si=65ZUiqnn4E3E_wVE' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R2: Travelling double arm eggbeater for 8m (with creative arms) — <a href='https://youtu.be/WqnSxT2JzG4?si=UFQypt1sTsUKBg-M' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R3: 2x Double arm headfirst boosts (one must contain a twirl) — <a href='https://youtu.be/AOQn9Mu0cGk?si=MwCFiTPdnRmb8Hxr' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R4: Side flutter kick → Rapid Front Pike → Rapid double leg walkover → Torpedo scull → Smooth transition to double arm eggbeater — <a href='https://youtu.be/2d7f_jID3zQ?si=YcfApmaCphMe1f7o' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R5: Back layout → Straight leg ballet leg → Flamingo (swap twice) → Doubles → Flamingo → Ballet leg → Bent knee back layout — <a href='https://youtu.be/nY5pw6VozC8?si=kjOmuS8boziPohg1' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R6: Thrust hybrid combination — <a href='https://youtu.be/gHF-vDNarjA?si=MXE7SMvftdBGo9ES' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R7: Spin hybrid combination — <a href='https://youtu.be/yhygZgTqZLg?si=BivScVU1Kij8df9e' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R8: Rotations hybrid combination — <a href='https://youtu.be/N1vyOq06r9w?si=QKRm4dWA5CURm2Zw' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R9: Airborne Weight hybrid combination — <a href='https://youtu.be/L6WR3r-eRBA?si=ePhr8VmWwyndNIpY' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>",
+                    "R10: Flexibility hybrid combination — <a href='https://youtu.be/8tyH1TjfpRc?si=PXUbMO3fFs2Mm1O8' target='_blank' class='text-purple-300 underline font-bold'>WATCH VIDEO</a>"
+                ],
+                land: [
+                    "L1: Split position on land (Right & Left leg tested)",
+                    "L2: From stand Up followed by a forward roll to jump, followed by a controlled stand up",
+                    "L3: Handstand away from wall (extension & balance)",
+                    "L4: Bridge from stand up fluid back drop",
+                    "L5: Push ups x25 (perfect rhythmic plank)"
+                ],
+                conditions: [
+                    "Black suit and white hat to wear.",
+                    "All items must be attempted and scored.",
+                    "The result will be determined by the average score on the 10 elements.",
+                    "All items must meet the minimum requirements to achieve the 5.0 bronze rating.",
+                    "If more than 2 elements have a score less than 4.5, it will be an automatic fail.",
+                    "Unless otherwise noted, movements should be performed relatively stationary and in a uniform motion.",
+                    "The assessments will mimic a competition and all swimmers will only be able to attempt each element once.",
+                    "For skills on dry land, swimmers should wear tight-fitting shorts or leggings.",
+                    "Coaches are asked to highlight any areas in which the swimmers are not yet proficient in the comments box.",
+                    "No replays will be offered unless requested by the coach in charge.",
+                    "All figures will be judged following the current World Aquatics judging guide.",
+                    "Any concerns about how an evaluation has been carried out should be communicated to the coach in charge."
+                ]
+            }
+        };
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-section').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-teal-600', 'text-white');
+                btn.classList.add('bg-slate-200', 'text-slate-700');
+            });
+
+            const targetSection = document.getElementById(`section-${tabId}`);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-slate-200', 'text-slate-700');
+                activeBtn.classList.add('active', 'bg-teal-600', 'text-white');
+            }
+        }
+
+        function changeEvaluationCategory(categoryKey) {
+            const data = evalData[categoryKey] || evalData['supernovices'];
+            const heading = document.getElementById('eval-title-heading');
+            if (heading) {
+                heading.innerText = data.title;
+            }
+
+            const container = document.getElementById('eval-content-container');
+            if (!container) return;
+
+            let figsHTML = data.figures.map(f => `<div><strong>•</strong> ${f}</div>`).join('');
+            let routHTML = data.routines.map(r => `<div><strong>•</strong> ${r}</div>`).join('');
+            let landHTML = data.land.map(l => `<div><strong>•</strong> ${l}</div>`).join('');
+            let condHTML = data.conditions.map(c => `<li>${c}</li>`).join('');
+
+            container.innerHTML = `
+                <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 space-y-3">
+                    <h3 class="font-bold text-teal-400 text-sm border-b border-slate-700 pb-2"><i class="fas fa-swimmer"></i> FIGURE / ELEMENT GUIDE</h3>
+                    <div class="space-y-2 text-xs text-slate-300 max-h-96 overflow-y-auto pr-1">
+                        ${figsHTML}
+                    </div>
+                </div>
+                <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 space-y-3">
+                    <h3 class="font-bold text-purple-400 text-sm border-b border-slate-700 pb-2"><i class="fas fa-music"></i> ROUTINE GUIDE</h3>
+                    <div class="space-y-2 text-xs text-slate-300 max-h-96 overflow-y-auto pr-1">
+                        ${routHTML}
+                    </div>
+                </div>
                 <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 space-y-4">
-                    <h3 class="font-bold text-amber-400 text-sm border-b border-slate-700 pb-2"><i class="fas fa-child"></i> LAND GUIDE (L1 - L5)</h3>
+                    <h3 class="font-bold text-amber-400 text-sm border-b border-slate-700 pb-2"><i class="fas fa-child"></i> LAND GUIDE</h3>
                     <div class="space-y-1.5 text-xs text-slate-300">
-                        <div><strong>L1:</strong> Splits on land (Right & Left) <span class="text-[10px] text-slate-400">(Memory)</span></div>
-                        <div><strong>L2:</strong> Forward roll to stand up <span class="text-[10px] text-slate-400">(Memory)</span></div>
-                        <div><strong>L3:</strong> Handstand away from wall <span class="text-[10px] text-slate-400">(Memory)</span></div>
-                        <div><strong>L4:</strong> Bridge from stand up <span class="text-[10px] text-slate-400">(Memory)</span></div>
-                        <div><strong>L5:</strong> Push up x5 <span class="text-[10px] text-slate-400">(Memory)</span></div>
+                        ${landHTML}
                     </div>
-
                     <div class="pt-2 border-t border-slate-700">
                         <h4 class="font-bold text-slate-200 text-xs mb-2"><i class="fas fa-gavel text-amber-400"></i> General conditions:</h4>
-                        <ol class="list-decimal list-inside space-y-1 text-[11px] text-slate-400 leading-relaxed">
-                            <li>Black suit and white hat to wear.</li>
-                            <li>All items must be attempted and scored.</li>
-                            <li>Result determined by average score on 10 elements.</li>
-                            <li>All items must meet minimum requirements for 5.0 bronze.</li>
-                            <li>More than 2 elements < 4.5 is an automatic fail.</li>
-                            <li>Movements performed relatively stationary.</li>
-                            <li>Single attempt per element mimicking competition.</li>
-                            <li>Tight-fitting shorts or leggings on land.</li>
-                            <li>Coaches highlight proficiency gaps in comments.</li>
-                            <li>No replays offered unless coach requests.</li>
-                            <li>Judged per World Aquatics judging guide.</li>
-                            <li>Concerns communicated to coach in charge.</li>
+                        <ol class="list-decimal list-inside space-y-1 text-[11px] text-slate-400 leading-relaxed max-h-48 overflow-y-auto">
+                            ${condHTML}
                         </ol>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 4: NATIONAL TEAM PATHWAY -->
-    <div id="section-national-pathway" class="tab-section hidden space-y-6">
-        <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-slate-900 text-white rounded-xl p-5 shadow-lg">
-            <h2 class="text-xl font-bold"><i class="fas fa-route"></i> National Team Pathway, Values & Real-World Resilience</h2>
-            <p class="text-xs text-amber-100">Commitment, ASAJ 3-Tier Qualification Framework, Degree of Difficulty standards, and inspiring stories.</p>
-        </div>
-
-        <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-3">
-            <h3 class="font-bold text-slate-900 text-lg text-amber-700">1. Your Journey is Individual (Personal Responsibility)</h3>
-            <p class="text-xs text-slate-700 leading-relaxed">Representing Jamaica is one of the highest honors. No one can train for you: leg height, flexibility, technical precision, lung capacity, and mental toughness depend 100% on your individual effort.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                <div class="bg-slate-50 p-4 rounded-lg border">
-                    <div class="font-bold text-xs text-slate-900 mb-1">Autonomy & Maturity</div>
-                    <p class="text-[11px] text-slate-600">Take full ownership of your nutrition, rest, punctuality, and physical preparation.</p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-lg border">
-                    <div class="font-bold text-xs text-slate-900 mb-1">Attitude & Discipline</div>
-                    <p class="text-[11px] text-slate-600">Judges assess your discipline, character, and ability to perform under pressure during trials.</p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-lg border">
-                    <div class="font-bold text-xs text-slate-900 mb-1">Consistency</div>
-                    <p class="text-[11px] text-slate-600">High performance is achieved over weeks and months of steady, uninterrupted effort.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-4">
-            <h3 class="font-bold text-slate-900 text-lg text-amber-700">5. National Qualification Structure (ASAJ Framework 2026-2027)</h3>
-            <p class="text-xs text-slate-700">The Aquatic Sports Association of Jamaica (ASAJ) establishes a 3-tier qualification framework:</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                <div class="bg-amber-50 p-3 rounded-lg border border-amber-200"><strong>Development Squad:</strong> Entry-level international pathway for regional experience.</div>
-                <div class="bg-teal-50 p-3 rounded-lg border border-teal-200"><strong>National Team:</strong> CARIFTA, CCCAN, and PanAm Aquatics representation.</div>
-                <div class="bg-slate-900 text-white p-3 rounded-lg"><strong>Elite National Team:</strong> International podiums, World Cups, and World Championships.</div>
-            </div>
-
-            <h4 class="font-bold text-slate-900 text-sm pt-2">ASAJ Technical & Degree of Difficulty (DD) Criteria</h4>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs">
-                    <thead class="bg-slate-100 text-slate-700 uppercase font-bold">
-                        <tr>
-                            <th class="p-2.5">Category</th>
-                            <th class="p-2.5">ASAJ Tier</th>
-                            <th class="p-2.5 text-center">Required Avg Score (Figures + Routine)</th>
-                            <th class="p-2.5 text-center">Min. Executed Difficulty (DD)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200 text-slate-700">
-                        <tr><td class="p-2.5 font-bold">12 & Under</td><td class="p-2.5">Development Squad</td><td class="p-2.5 text-center font-bold text-teal-700">5.0</td><td class="p-2.5 text-center font-bold text-orange-600">10.0</td></tr>
-                        <tr><td class="p-2.5 font-bold">12 & Under</td><td class="p-2.5">National Team</td><td class="p-2.5 text-center font-bold text-teal-700">5.4</td><td class="p-2.5 text-center font-bold text-orange-600">14.8</td></tr>
-                        <tr><td class="p-2.5 font-bold">12 & Under</td><td class="p-2.5">Elite National Team</td><td class="p-2.5 text-center font-bold text-teal-700">5.0</td><td class="p-2.5 text-center font-bold text-orange-600">20.0</td></tr>
-                        <tr><td class="p-2.5 font-bold">Youth (13-15)</td><td class="p-2.5">Development Squad</td><td class="p-2.5 text-center font-bold text-teal-700">5.4</td><td class="p-2.5 text-center font-bold text-orange-600">14.0</td></tr>
-                        <tr><td class="p-2.5 font-bold">Youth (13-15)</td><td class="p-2.5">National Team</td><td class="p-2.5 text-center font-bold text-teal-700">5.8</td><td class="p-2.5 text-center font-bold text-orange-600">18.5</td></tr>
-                        <tr><td class="p-2.5 font-bold">Youth (13-15)</td><td class="p-2.5">Elite National Team</td><td class="p-2.5 text-center font-bold text-teal-700">5.4</td><td class="p-2.5 text-center font-bold text-orange-600">25.0</td></tr>
-                        <tr><td class="p-2.5 font-bold">Junior</td><td class="p-2.5">Development Squad</td><td class="p-2.5 text-center font-bold text-teal-700">5.8</td><td class="p-2.5 text-center font-bold text-orange-600">16.0</td></tr>
-                        <tr><td class="p-2.5 font-bold">Junior</td><td class="p-2.5">National Team</td><td class="p-2.5 text-center font-bold text-teal-700">6.2</td><td class="p-2.5 text-center font-bold text-orange-600">20.2</td></tr>
-                        <tr><td class="p-2.5 font-bold">Junior</td><td class="p-2.5">Elite National Team</td><td class="p-2.5 text-center font-bold text-teal-700">5.8</td><td class="p-2.5 text-center font-bold text-orange-600">30.0</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-4">
-            <h3 class="font-bold text-slate-900 text-lg text-amber-700">Real-World Resilience in Artistic Swimming</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
-                <div class="bg-slate-50 p-4 rounded-lg border"><strong>Bill May (USA):</strong> Excluded due to gender rules; returned at age 45 to pioneer men's artistic swimming and star in Cirque du Soleil.</div>
-                <div class="bg-slate-50 p-4 rounded-lg border"><strong>Anita Alvarez (USA):</strong> Overcame severe fainting in Budapest 2022 to win Olympic Silver at Paris 2024.</div>
-                <div class="bg-slate-50 p-4 rounded-lg border"><strong>Jacqueline Simoneau (Canada):</strong> Stepped away to study medicine and mental health, returning to lead Canada's Olympic duet.</div>
-                <div class="bg-slate-50 p-4 rounded-lg border"><strong>Megumi Field (USA):</strong> Mastered extreme technical precision under the new World Aquatics difficulty judging system.</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 5: CATEGORIES & PATHWAY GUIDE -->
-    <div id="section-categories-guide" class="tab-section hidden space-y-6">
-        <div class="bg-gradient-to-r from-indigo-900 via-slate-900 to-teal-900 text-white rounded-xl p-5 shadow-lg">
-            <h2 class="text-xl font-bold"><i class="fas fa-layer-group"></i> Artistic Swimming Categories & Pathway Guide</h2>
-            <p class="text-xs text-indigo-200">Understanding local developmental tiers (Novice, Intermediate) vs. World Aquatics international elite divisions (12&U, Youth, Junior, Senior).</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-3">
-                <span class="text-xs font-bold bg-teal-50 text-teal-700 px-2.5 py-1 rounded">Development Tier 1</span>
-                <h3 class="font-bold text-slate-900 text-lg">Novice (Principiante)</h3>
-                <p class="text-xs text-slate-700 leading-relaxed">
-                    Focused on introduction to the sport and acquiring basic aquatic skills. Typically for swimmers in their first or second year of experience.<br>
-                    • <strong>Competitive Focus:</strong> Learning basic compulsory figures (fixed body positions and controlled transitions).<br>
-                    • <strong>Routines:</strong> Primarily team routines in local and recreational events.
-                </p>
-            </div>
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-3">
-                <span class="text-xs font-bold bg-orange-50 text-orange-700 px-2.5 py-1 rounded">Development Tier 2</span>
-                <h3 class="font-bold text-slate-900 text-lg">Intermediate (Intermedio)</h3>
-                <p class="text-xs text-slate-700 leading-relaxed">
-                    Serving as a bridge between recreational basics and high performance. For athletes with over 1 year of experience.<br>
-                    • <strong>Competitive Focus:</strong> Compulsory figures with higher technical complexity.<br>
-                    • <strong>Routines:</strong> Team, duet, and solo choreographies emphasizing synchronization, aerobic endurance, and smooth transitions.
-                </p>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-4">
-            <h3 class="font-bold text-slate-900 text-lg text-indigo-800">World Aquatics International Elite Pathway (12&U, Youth, Junior, Senior)</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-slate-700">
-                <div class="bg-slate-50 p-4 rounded-xl border">
-                    <div class="font-bold text-teal-700 text-sm mb-1">12 & Under</div>
-                    <p>Ages 12 & under. Foundation of international competition, featuring individual compulsory figures alongside free routines.</p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border">
-                    <div class="font-bold text-teal-700 text-sm mb-1">Youth (13–15)</div>
-                    <p>Key junior transition category combining figure scores with high-energy free routines and acrobatic elements.</p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border">
-                    <div class="font-bold text-teal-700 text-sm mb-1">Junior (15–19)</div>
-                    <p>High-performance feeder tier for national teams. Replaces figures with technical routines, free routines, and acrobatic routines.</p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border">
-                    <div class="font-bold text-teal-700 text-sm mb-1">Senior (Elite)</div>
-                    <p>Peak international level (Olympic Games & World Championships) featuring technical, free, and acrobatic team/duet events.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 6: ROADMAP -->
-    <div id="section-roadmap" class="tab-section hidden space-y-6">
-        <div class="bg-gradient-to-r from-slate-900 via-teal-900 to-slate-900 text-white rounded-xl p-5 shadow-lg">
-            <h2 class="text-xl font-bold"><i class="fas fa-calendar-alt"></i> Season Training Plan & Competitive Roadmap 2026-2027</h2>
-            <p class="text-xs text-teal-300">Individual technical development, training phases, attendance policies, and competition milestones.</p>
-        </div>
-
-        <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-4">
-            <h3 class="font-bold text-slate-900 text-lg text-teal-800">1. Competitive Roadmap & Milestones</h3>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs">
-                    <thead class="bg-slate-100 text-slate-700 uppercase font-bold">
-                        <tr>
-                            <th class="p-2.5">Window</th>
-                            <th class="p-2.5">Event / Milestone</th>
-                            <th class="p-2.5">Role in the Pathway</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200 text-slate-700">
-                        <tr><td class="p-2.5 font-bold">Oct 31, 2026</td><td class="p-2.5 font-semibold">Figures & Elements Checkpoint</td><td class="p-2.5">First major technical checkpoint to determine readiness and level progression.</td></tr>
-                        <tr><td class="p-2.5 font-bold">Nov 28, 2026</td><td class="p-2.5 font-semibold">National Team Trials + Team Routine</td><td class="p-2.5">National Team Trials for eligible Age Group & Junior athletes. Begins team routine qualification for Coral Springs 2027.</td></tr>
-                        <tr><td class="p-2.5 font-bold">December 2026</td><td class="p-2.5 font-semibold">Tornadoes Club Evaluation Process</td><td class="p-2.5">Formal internal review of technical development, consistency, attendance, and competitive readiness.</td></tr>
-                        <tr><td class="p-2.5 font-bold">February 2027</td><td class="p-2.5 font-semibold">Splashquatics Individual & Team Verify</td><td class="p-2.5">Target qualification window for solos/duets for Coral Springs and practical team routine mastery checkpoint.</td></tr>
-                        <tr><td class="p-2.5 font-bold">March 2027</td><td class="p-2.5 font-semibold">CARIFTA 2027 National Team Pathway</td><td class="p-2.5">Athletes selected to Jamaica's National Team enter national prep pathway (Host TBC).</td></tr>
-                        <tr><td class="p-2.5 font-bold">Apr 30 – May 2, 2027</td><td class="p-2.5 font-semibold">Worldwide Invitational Coral Springs</td><td class="p-2.5">International competition target in Florida for Novice through Youth entries.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="bg-amber-50 rounded-xl p-6 shadow-sm border border-amber-200 space-y-3">
-            <h3 class="font-bold text-amber-900 text-lg"><i class="fas fa-clock text-amber-600"></i> Strict Attendance & Punctuality Policy</h3>
-            <p class="text-xs text-amber-900 leading-relaxed">
-                <strong>Weekdays:</strong> A 30-minute estimated arrival window is provided. Training begins at the stated start time.<br>
-                <strong>Saturdays:</strong> Only a 15-minute late-arrival allowance is permitted. Novice/Supernovice session (UWI Pool): latest arrival 8:15 AM. Afternoon sessions (2:00 PM): latest arrival 2:15 PM.<br>
-                <span class="font-bold text-red-600 uppercase block mt-1">No entry will be accepted after the applicable late-arrival limit.</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- TAB 7: WORLD AQUATICS RULES -->
-    <div id="section-wa-rules" class="tab-section hidden space-y-6">
-        <div class="bg-gradient-to-r from-cyan-900 via-blue-900 to-slate-900 text-white rounded-xl p-5 shadow-lg">
-            <h2 class="text-xl font-bold">World Aquatics (WA) Official Competition Code & Rules</h2>
-            <p class="text-xs text-cyan-200">International scoring system, Coach Card declarations, and penalties.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-                <h3 class="font-bold text-cyan-800 text-base mb-2"><i class="fas fa-list-check"></i> Elements Panel</h3>
-                <p class="text-xs text-slate-600 leading-relaxed">Evaluates Technical Required Elements (TRE). Any under-rotation over 90° triggers a Base Mark penalty.</p>
-            </div>
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-                <h3 class="font-bold text-purple-800 text-base mb-2"><i class="fas fa-palette"></i> Artistic Impression</h3>
-                <p class="text-xs text-slate-600 leading-relaxed">Evaluates choreography, music interpretation, and transitions between technical hybrids.</p>
-            </div>
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-                <h3 class="font-bold text-emerald-800 text-base mb-2"><i class="fas fa-eye"></i> Technical Controllers</h3>
-                <p class="text-xs text-slate-600 leading-relaxed">Monitors synchronization errors and validates declared difficulty cards against actual routine execution.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 8: RESOURCE HUB & DRIVE -->
-    <div id="section-drive-hub" class="tab-section hidden space-y-6">
-        <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-xl p-5 shadow-lg">
-            <h2 class="text-xl font-bold">Tornadoes Cloud Document Repository & Google Drive</h2>
-            <p class="text-xs text-blue-200">Centralized storage for routine music, registration forms, WA Coach Cards, and video archives.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1"><i class="fas fa-music text-purple-600 mr-2"></i> Routine Music & Counts</h3>
-                    <p class="text-xs text-slate-600 mb-4">Official MP3 audio tracks and count rehearsal music.</p>
-                </div>
-                <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border">Open Folder</a>
-            </div>
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1"><i class="fas fa-file-pdf text-red-500 mr-2"></i> ASAJ Forms & Registration</h3>
-                    <p class="text-xs text-slate-600 mb-4">Downloadable athlete registration and medical waivers.</p>
-                </div>
-                <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border">Open Folder</a>
-            </div>
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1"><i class="fas fa-photo-film text-purple-500 mr-2"></i> Video & Photo Archives</h3>
-                    <p class="text-xs text-slate-600 mb-4">Underground & surface video analysis footage.</p>
-                </div>
-                <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="bg-slate-100 hover:bg-blue-50 text-blue-700 font-bold py-2 px-3 rounded-lg text-xs text-center border">Open Folder</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 9: AI ROUTINE GENERATOR -->
-    <div id="section-ai-drill" class="tab-section hidden space-y-6">
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-            <h2 class="text-xl font-bold text-slate-900 mb-2">AI Custom Drill & Routine Generator</h2>
-            <p class="text-xs text-slate-500 mb-4">Generates targeted land conditioning and pool drill plans tailored to Tornadoes squad levels using Gemini.</p>
-            <div class="space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <select id="drill-squad" class="bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm">
-                        <option value="Supernovices">Supernovices</option>
-                        <option value="Novices">Novices</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="12 & Under">12 & Under</option>
-                        <option value="Youth 13-15">Youth 13-15</option>
-                        <option value="Juniors">Juniors</option>
-                    </select>
-                    <select id="drill-phase" class="bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm">
-                        <option value="Foundational Sculling">Foundational Sculling</option>
-                        <option value="Figures & DD Focus">Figures & DD Focus</option>
-                        <option value="Trial Peak">National Trial Preparation</option>
-                    </select>
-                    <button onclick="generateAIDrill()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-lg text-sm">Generate Workout Plan</button>
-                </div>
-                <div id="drill-output" class="hidden bg-slate-50 p-4 rounded-xl border text-sm whitespace-pre-line"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 10: AI EVALUATOR & VOICE -->
-    <div id="section-ai-eval" class="tab-section hidden space-y-6">
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-            <h2 class="text-xl font-bold text-slate-900 mb-2">AI Coach Evaluator & Count Voice Synthesizer</h2>
-            <p class="text-xs text-slate-500 mb-4">Analyze judge notes and generate rhythm counts using AI audio.</p>
-            <textarea id="eval-notes" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm mb-4" placeholder="Enter judge notes or fault descriptions..."></textarea>
-            <div class="flex gap-3">
-                <button onclick="evaluateExecution()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-sm">Analyze Biomechanics</button>
-                <button onclick="generateCountAudio()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-4 py-2 rounded-lg text-sm">Play Practice Counts (TTS)</button>
-            </div>
-            <div id="eval-output-container" class="mt-4 hidden space-y-3">
-                <div id="eval-text-card" class="bg-slate-50 p-3 rounded-lg border text-sm hidden"></div>
-                <audio id="count-audio-player" controls class="mt-2 hidden"></audio>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAB 11: PARENT AI ASSISTANT -->
-    <div id="section-ai-assistant" class="tab-section hidden space-y-6">
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-            <h2 class="text-xl font-bold text-slate-900 mb-2">Tornadoes Parent & Athlete AI Assistant</h2>
-            <p class="text-xs text-slate-500 mb-4">Ask any question about practice schedules, gear, rules, or national trials.</p>
-            <div id="chat-history" class="h-64 overflow-y-auto bg-slate-50 p-4 rounded-xl border mb-3 space-y-2 text-sm">
-                <div class="bg-teal-100 text-teal-900 p-2.5 rounded-lg max-w-xl"><strong>AI Assistant:</strong> Welcome! Ask me anything about Tornadoes squad schedules, Supernovices foundation year, WA rules, or gear requirements.</div>
-            </div>
-            <div class="flex gap-2">
-                <input type="text" id="parent-query" class="flex-grow bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm" placeholder="Ask a question about Supernovices foundation or trial schedules...">
-                <button onclick="askParentAssistant()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-3 rounded-lg text-sm">Send</button>
-            </div>
-        </div>
-    </div>
-
-</main>
-
-<script>
-    function switchTab(tabId) {
-        document.querySelectorAll('.tab-section').forEach(el => el.classList.add('hidden'));
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active', 'bg-teal-600', 'text-white');
-            btn.classList.add('bg-slate-200', 'text-slate-700');
-        });
-
-        const targetSection = document.getElementById(`section-${tabId}`);
-        if (targetSection) {
-            targetSection.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            `;
         }
-        const activeBtn = document.getElementById(`tab-${tabId}`);
-        if (activeBtn) {
-            activeBtn.classList.remove('bg-slate-200', 'text-slate-700');
-            activeBtn.classList.add('active', 'bg-teal-600', 'text-white');
+
+        async function askParentAssistant() {
+            const input = document.getElementById('parent-query');
+            const query = input.value.trim();
+            if (!query) return;
+
+            const chatHistory = document.getElementById('chat-history');
+            chatHistory.innerHTML += `<div class="bg-slate-200 text-slate-800 p-2.5 rounded-lg max-w-xl ml-auto">${query}</div>`;
+            input.value = '';
+
+            const aiMsg = document.createElement('div');
+            aiMsg.className = 'bg-teal-100 text-teal-900 p-2.5 rounded-lg max-w-xl';
+            aiMsg.innerText = "Checking Tornadoes records...";
+            chatHistory.appendChild(aiMsg);
+
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: `Answer as Tornadoes Synchro parent assistant. Mention Supernovices Foundation Year principles ("Foundation First. Progression Follows") if asked: ${query}` }] }] })
+                });
+                const data = await response.json();
+                aiMsg.innerText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "I am here to help!";
+            } catch(e) {
+                aiMsg.innerText = "Error answering query.";
+            }
+            chatHistory.scrollTop = chatHistory.scrollHeight;
         }
-    }
 
-    function changeEvaluationCategory(category) {
-        const heading = document.getElementById('eval-title-heading');
-        if (heading) {
-            heading.innerText = `TORNADOES ARTISTIC SWIMMING — Technical Evaluation Form (${category.toUpperCase()})`;
-        }
-    }
-
-    async function generateAIDrill() {
-        const squad = document.getElementById('drill-squad').value;
-        const phase = document.getElementById('drill-phase').value;
-        const output = document.getElementById('drill-output');
-        output.classList.remove('hidden');
-        output.innerText = `Generating ${phase} workout plan for ${squad}...`;
-        
-        const apiKey = "";
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents: [{ parts: [{ text: `Create a professional artistic swimming training session for Tornadoes ${squad} during ${phase}.` }] }] })
-            });
-            const data = await response.json();
-            output.innerText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Workout plan generated successfully.";
-        } catch(e) {
-            output.innerText = "Error generating workout plan.";
-        }
-    }
-
-    async function evaluateExecution() {
-        const notes = document.getElementById('eval-notes').value;
-        const textCard = document.getElementById('eval-text-card');
-        textCard.classList.remove('hidden');
-        textCard.innerText = "Analyzing biomechanics against World Aquatics standards...";
-        
-        const apiKey = "";
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents: [{ parts: [{ text: `Provide technical corrections for artistic swimming fault: ${notes}` }] }] })
-            });
-            const data = await response.json();
-            textCard.innerText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Analysis complete.";
-        } catch(e) {
-            textCard.innerText = "Analysis error.";
-        }
-    }
-
-    async function generateCountAudio() {
-        const player = document.getElementById('count-audio-player');
-        player.classList.remove('hidden');
-        player.src = "https://actions.google.com/sounds/v1/ambiences/rain_heavy.ogg";
-        player.play();
-    }
-
-    async function askParentAssistant() {
-        const input = document.getElementById('parent-query');
-        const query = input.value.trim();
-        if (!query) return;
-
-        const chatHistory = document.getElementById('chat-history');
-        chatHistory.innerHTML += `<div class="bg-slate-200 text-slate-800 p-2.5 rounded-lg max-w-xl ml-auto">${query}</div>`;
-        input.value = '';
-
-        const aiMsg = document.createElement('div');
-        aiMsg.className = 'bg-teal-100 text-teal-900 p-2.5 rounded-lg max-w-xl';
-        aiMsg.innerText = "Checking Tornadoes records...";
-        chatHistory.appendChild(aiMsg);
-
-        const apiKey = "";
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents: [{ parts: [{ text: `Answer as Tornadoes Synchro parent assistant. Mention Supernovices Foundation Year principles if asked: ${query}` }] }] })
-            });
-            const data = await response.json();
-            aiMsg.innerText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "I am here to help!";
-        } catch(e) {
-            aiMsg.innerText = "Error answering query.";
-        }
-        chatHistory.scrollTop = chatHistory.scrollHeight;
-    }
-</script>
+        window.onload = function() {
+            changeEvaluationCategory('supernovices');
+        };
+    </script>
+</body>
+</html>
