@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/parent-ai.js": {
+      "maxDuration": 30
+    }
+  }
+}

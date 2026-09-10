@@ -1,0 +1,8 @@
+{
+  "name": "tornadoes-artistic-swimming-hub",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "openai": "latest"
+  }
+}
