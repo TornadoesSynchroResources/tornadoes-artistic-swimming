@@ -1,0 +1,32 @@
+name: Add iPhone home screen icon link
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix-icon-link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add apple-touch-icon link if missing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          if 'rel="apple-touch-icon"' not in s:
+              tag = '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">\n'
+              s = s.replace('</head>', tag + '</head>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit if changed
+        run: |
+          git config user.name "TornadoesSynchroResources"
+          git config user.email "jessicadancer83@gmail.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add iPhone home screen icon link"
+          git push
