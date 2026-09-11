@@ -3,25 +3,5 @@
     "api/parent-ai.js": {
       "maxDuration": 30
     }
-  },
-  "rewrites": [
-    { "source": "/apple-touch-icon.png", "destination": "/icon.svg" },
-    { "source": "/favicon.ico", "destination": "/icon.svg" }
-  ],
-  "headers": [
-    {
-      "source": "/apple-touch-icon.png",
-      "headers": [
-        { "key": "Content-Type", "value": "image/svg+xml" },
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
-      ]
-    },
-    {
-      "source": "/favicon.ico",
-      "headers": [
-        { "key": "Content-Type", "value": "image/svg+xml" },
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
-      ]
-    }
-  ]
+  }
 }
