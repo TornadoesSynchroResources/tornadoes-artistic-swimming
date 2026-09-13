@@ -12,21 +12,59 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add apple-touch-icon link if missing
+      - name: Add requested Hub updates if missing
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
+
           if 'rel="apple-touch-icon"' not in s:
               tag = '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">\n'
               s = s.replace('</head>', tag + '</head>', 1)
-              p.write_text(s, encoding='utf-8')
+
+          marker = '<!-- WA-2026-RULE-REVIEW-UPDATE -->'
+          if marker not in s:
+              block = '''<!-- WA-2026-RULE-REVIEW-UPDATE -->
+<div class="bg-gradient-to-r from-amber-50 via-white to-cyan-50 rounded-xl p-5 shadow-sm border border-amber-200">
+  <div class="flex items-start gap-3">
+    <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><i class="fas fa-bell"></i></div>
+    <div class="min-w-0">
+      <span class="text-xs font-black uppercase tracking-wider text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full">2026 Rules Update — In Progress</span>
+      <h3 class="text-lg font-extrabold text-slate-900 mt-2">What Is Happening Right Now?</h3>
+      <p class="text-xs text-slate-700 mt-2 leading-relaxed"><strong>World Aquatics is currently completing the 2026 Artistic Swimming rules review process.</strong> The proposed changes are for the next four-year cycle toward LA28. <strong>These are NOT approved rules yet.</strong></p>
+    </div>
+  </div>
+  <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+    <div class="rounded-lg border border-slate-200 bg-white p-3"><strong class="text-cyan-800">5 August 2026</strong><br/>Deadline for submitting proposed rule changes.</div>
+    <div class="rounded-lg border border-slate-200 bg-white p-3"><strong class="text-cyan-800">15 August 2026</strong><br/>Proposals consolidated and submitted to the Technical Committee.</div>
+    <div class="rounded-lg border border-slate-200 bg-white p-3"><strong class="text-cyan-800">1 September 2026</strong><br/>Deadline for the Technical Artistic Swimming Committee to review the proposals.</div>
+    <div class="rounded-lg border border-slate-200 bg-white p-3"><strong class="text-cyan-800">1–20 September 2026</strong><br/>Legal review of the proposals.</div>
+    <div class="rounded-lg border border-slate-200 bg-white p-3"><strong class="text-amber-700">22 September 2026</strong><br/>World Aquatics is scheduled to publish the proposals on its website in final proposed form — <strong>still not approved</strong>.</div>
+    <div class="rounded-lg border border-slate-200 bg-white p-3"><strong class="text-amber-700">25 September 2026</strong><br/>Proposals move to the Bureau.</div>
+    <div class="rounded-lg border border-slate-200 bg-white p-3"><strong class="text-orange-700">1 October 2026</strong><br/>The Bureau is scheduled to make the decisions.</div>
+    <div class="rounded-lg border border-slate-200 bg-white p-3"><strong class="text-orange-700">15 October 2026</strong><br/>New rules are scheduled to enter into force.</div>
+  </div>
+  <div class="mt-4 rounded-lg bg-slate-900 text-white p-4">
+    <div class="text-xs font-black uppercase tracking-wider text-cyan-300">Important</div>
+    <p class="text-xs text-slate-200 mt-1">Until World Aquatics officially approves and puts the new rules into force, the current official rules remain the applicable reference for competition.</p>
+  </div>
+  <p class="text-[11px] text-slate-500 mt-3">Background: <a class="text-cyan-700 font-semibold hover:underline" href="https://www.insidethegames.biz/articles/artistic-swimming-sets-a-new-rhythm-for-la28" target="_blank" rel="noopener noreferrer">Inside the Games — Artistic Swimming Sets a New Rhythm for LA28</a></p>
+</div>
+'''
+              needle = '<div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 space-y-6">'
+              section_start = s.find('<div class="tab-section hidden space-y-6" id="section-wa-rules">')
+              pos = s.find(needle, section_start)
+              if pos == -1:
+                  raise SystemExit('WA rules insertion point not found')
+              s = s[:pos] + block + s[pos:]
+
+          p.write_text(s, encoding='utf-8')
           PY
       - name: Commit if changed
         run: |
           git config user.name "TornadoesSynchroResources"
           git config user.email "jessicadancer83@gmail.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Add iPhone home screen icon link"
+          git diff --cached --quiet || git commit -m "Add current World Aquatics rules review timeline"
           git push
